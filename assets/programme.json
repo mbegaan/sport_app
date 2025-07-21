@@ -1,0 +1,184 @@
+{
+  "program": {
+    "name": "Chaîne Porteuse",
+    "objective": "développement évolutif de la chaîne postérieure",
+    "muscles": ["dorsaux", "scapulas", "fessiers", "ischios", "lombaires"],
+    "goals": ["stabilité posturale", "force fonctionnelle", "traction contrôlée"],
+    "sessions_per_week": [2, 3],
+    "sessions": [
+      {
+        "id": 1,
+        "name": "Structure",
+        "focus": "Scapulas + Tirage postural",
+        "exercises": [
+          {
+            "name": "Scapula Pull-Ups",
+            "sets": 3,
+            "reps": { "min": 6, "max": 8 },
+            "notes": "bras tendus, activer uniquement omoplates"
+          },
+          {
+            "name": "Pompes scapulaires",
+            "sets": 2,
+            "reps": { "min": 15, "max": 20 },
+            "notes": "quadrupédie ou planche, mouvement lent"
+          },
+          {
+            "name": "Row élastique bas",
+            "sets": 3,
+            "reps": { "min": 12, "max": 12 },
+            "notes": "élastique vert, omoplates vers colonne"
+          },
+          {
+            "name": "Face Pull (élastique)",
+            "sets": 3,
+            "reps": { "min": 15, "max": 15 },
+            "notes": "élastique en hauteur, coudes hauts"
+          },
+          {
+            "name": "Superman statique",
+            "sets": 3,
+            "duration_sec": { "min": 30, "max": 40 },
+            "notes": "bras tendus, jambes levées"
+          },
+          {
+            "name": "Planche bras tendus",
+            "sets": 3,
+            "duration_sec": { "min": 30, "max": 45 },
+            "notes": "posture neutre, gainage actif"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "name": "Ancrage",
+        "focus": "Fessiers, Ischios, Lombaires",
+        "exercises": [
+          {
+            "name": "Good Morning élastique",
+            "sets": 3,
+            "reps": { "min": 12, "max": 12 },
+            "notes": "bande sous pieds, dos droit"
+          },
+          {
+            "name": "Hip Thrust (bande)",
+            "sets": 4,
+            "reps": { "min": 12, "max": 15 },
+            "notes": "épaules surélevées, contraction en haut"
+          },
+          {
+            "name": "Kickbacks à genoux",
+            "sets": 3,
+            "reps_per_leg": 15,
+            "notes": "fessiers ciblés, tension constante"
+          },
+          {
+            "name": "Fentes bulgares",
+            "sets": 3,
+            "reps_per_leg": 10,
+            "notes": "contrôle, poussée par le talon"
+          },
+          {
+            "name": "Gainage latéral",
+            "sets": { "min": 2, "max": 3 },
+            "duration_sec": { "min": 30, "max": 30 },
+            "notes": "hanches alignées"
+          },
+          {
+            "name": "Superman pulse",
+            "sets": 3,
+            "reps": { "min": 10, "max": 10 },
+            "notes": "contractions brèves, dos et fessiers"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "name": "Intégration",
+        "focus": "Coordination + Traction",
+        "exercises": [
+          {
+            "name": "Traction négative",
+            "sets": 3,
+            "reps": { "min": 12, "max": 12 },
+            "duration_sec": { "min": 8, "max": 10 },
+            "notes": "montée assistée, descente lente"
+          },
+          {
+            "name": "Row inversé",
+            "sets": 3,
+            "reps": { "min": 10, "max": 12 },
+            "notes": "traction horizontale, contrôle du gainage"
+          },
+          {
+            "name": "Planche scapulaire dynamique",
+            "sets": 3,
+            "reps_per_arm": 10,
+            "notes": "ramener coude sous torse"
+          },
+          {
+            "name": "Soulevé de terre élastique",
+            "sets": 3,
+            "reps": { "min": 12, "max": 12 },
+            "notes": "tension sur ischios et dos"
+          },
+          {
+            "name": "Superman lent",
+            "sets": 3,
+            "reps": { "min": 8, "max": 8 },
+            "notes": "montée/descente lente, excentrique"
+          },
+          {
+            "name": "Dead Hang",
+            "sets": { "min": 2, "max": 3 },
+            "duration_sec": { "min": 30, "max": 60 },
+            "notes": "relâchement, grip, épaules"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "name": "Reset",
+        "focus": "Séance légère / reset",
+        "exercises": [
+          {
+            "name": "Cercles épaules / dislocations",
+            "sets": 2,
+            "reps": { "min": 20, "max": 20 },
+            "notes": "mobilisation douce"
+          },
+          {
+            "name": "Hanging passif",
+            "sets": 3,
+            "duration_sec": { "min": 20, "max": 20 },
+            "notes": "relâchement sans effort"
+          },
+          {
+            "name": "Pompes scapulaires (quadrupédie)",
+            "sets": 2,
+            "reps": { "min": 20, "max": 20 },
+            "notes": "active les omoplates"
+          },
+          {
+            "name": "Bird-dog lent",
+            "sets": 3,
+            "reps_per_side": 8,
+            "notes": "coordination gainage/dos"
+          },
+          {
+            "name": "Étirements ciblés",
+            "duration_per_zone_sec": 60,
+            "notes": "pectoraux, trapèzes, ischios"
+          }
+        ]
+      }
+    ],
+    "general_tips": {
+      "tempo": { "eccentric": 2, "pause": 1, "concentric": 2 },
+      "rest_between_sets_sec": { "min": 60, "max": 90 },
+      "rest_on_tractions_max_sec": 120,
+      "breathing": "inspire à la descente, souffle à l'effort",
+      "journaling": "noter fatigue, sensation musculaire, progrès"
+    }
+  }
+}
