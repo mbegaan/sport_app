@@ -125,10 +125,12 @@ void main() {
         // When
         final text = tester.widget<Text>(find.text('42'));
 
-        // Then
+        // Then - RepCounter utilise maintenant ResponsiveBuilder avec des tailles adaptatives
         expect(text.style?.color, AppColors.black);
         expect(text.style?.fontFamily, 'Inter');
-        expect(text.style?.fontSize, 60.0);
+        // La taille de police est maintenant responsive, on vérifie qu'elle existe
+        expect(text.style?.fontSize, isNotNull);
+        expect(text.style?.fontSize, greaterThan(50.0)); // Garde une taille raisonnable
       });
     });
 

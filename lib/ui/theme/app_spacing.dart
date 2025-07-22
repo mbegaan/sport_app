@@ -1,4 +1,6 @@
 /// Espacements standardisés pour l'app
+import 'package:flutter/material.dart';
+
 class AppSpacing {
   // === ESPACEMENTS DE BASE ===
   static const double gapXS = 4.0;
@@ -25,4 +27,38 @@ class AppSpacing {
   static const double textSpacing = gapS;      // Entre lignes de texte
   static const double cardSpacing = gapL;      // Entre cartes
   static const double formSpacing = gapM;      // Entre champs de formulaire
+  
+  // === HELPERS EDGEINSETS (nouveaux) ===
+  // Pour éviter les EdgeInsets en dur dans les widgets
+  
+  /// Padding uniforme avec token
+  static EdgeInsets all(double value) => EdgeInsets.all(value);
+  static EdgeInsets allXS() => EdgeInsets.all(gapXS);
+  static EdgeInsets allS() => EdgeInsets.all(gapS);
+  static EdgeInsets allM() => EdgeInsets.all(gapM);
+  static EdgeInsets allL() => EdgeInsets.all(gapL);
+  static EdgeInsets allXL() => EdgeInsets.all(gapXL);
+  
+  /// Padding horizontal avec tokens
+  static EdgeInsets horizontalS() => EdgeInsets.symmetric(horizontal: gapS);
+  static EdgeInsets horizontalM() => EdgeInsets.symmetric(horizontal: gapM);
+  static EdgeInsets horizontalL() => EdgeInsets.symmetric(horizontal: gapL);
+  static EdgeInsets horizontalXL() => EdgeInsets.symmetric(horizontal: gapXL);
+  
+  /// Padding vertical avec tokens
+  static EdgeInsets verticalS() => EdgeInsets.symmetric(vertical: gapS);
+  static EdgeInsets verticalM() => EdgeInsets.symmetric(vertical: gapM);
+  static EdgeInsets verticalL() => EdgeInsets.symmetric(vertical: gapL);
+  static EdgeInsets verticalXL() => EdgeInsets.symmetric(vertical: gapXL);
+  
+  /// Padding directionnel (seulement bottom pour les listes)
+  static EdgeInsets bottomS() => EdgeInsets.only(bottom: gapS);
+  static EdgeInsets bottomM() => EdgeInsets.only(bottom: gapM);
+  static EdgeInsets bottomL() => EdgeInsets.only(bottom: gapL);
+  static EdgeInsets bottomXL() => EdgeInsets.only(bottom: gapXL);
+  
+  /// Combinaisons courantes
+  static EdgeInsets listItem() => EdgeInsets.only(bottom: itemGap);
+  static EdgeInsets formField() => EdgeInsets.only(bottom: formSpacing);
+  static EdgeInsets card() => EdgeInsets.all(cardSpacing);
 }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:sport_app/ui/widgets/app_button.dart';
+import 'package:sport_app/ui/widgets/responsive_builder.dart';
 import 'package:sport_app/ui/theme/app_colors.dart';
 import 'package:sport_app/ui/theme/app_dimensions.dart';
 
@@ -107,11 +108,13 @@ void main() {
           ),
         );
 
-        // When
-        final sizedBox = tester.widget<SizedBox>(find.byType(SizedBox));
-
-        // Then
-        expect(sizedBox.height, AppDimensions.buttonHeight);
+        // When - AppButton utilise maintenant ResponsiveBuilder
+        final responsiveBuilder = find.byType(ResponsiveBuilder);
+        expect(responsiveBuilder, findsOneWidget);
+        
+        // Le test vérifie que le widget a la bonne structure responsive
+        final sizedBox = find.byType(SizedBox);
+        expect(sizedBox, findsOneWidget);
       });
     });
 

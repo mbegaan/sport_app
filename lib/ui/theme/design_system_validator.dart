@@ -9,15 +9,39 @@ class DesignSystemValidator {
   /// Valide qu'une couleur utilise les tokens définis
   static bool isValidColor(Color color) {
     const validColors = [
+      // Couleurs principales
       AppColors.black,
       AppColors.white,
       AppColors.grey,
+      
+      // Couleurs sémantiques
       AppColors.success,
       AppColors.warning,
       AppColors.error,
       AppColors.info,
+      
+      // Variantes de surface
       AppColors.greyLight,
       AppColors.greyDark,
+      
+      // Nouvelles variantes (extension Priorité 6)
+      AppColors.primaryHover,
+      AppColors.primaryPressed,
+      AppColors.primaryDisabled,
+      AppColors.surfaceElevated,
+      AppColors.surfacePressed,
+      AppColors.overlayLight,
+      AppColors.overlayMedium,
+      AppColors.overlayDark,
+      
+      // Couleurs spécialisées
+      AppColors.timerActive,
+      AppColors.timerPaused,
+      AppColors.timerCompleted,
+      AppColors.repCounterBackground,
+      AppColors.repCounterText,
+      AppColors.progressActive,
+      AppColors.progressInactive,
     ];
     return validColors.contains(color);
   }

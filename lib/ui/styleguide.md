@@ -17,6 +17,25 @@
 - Gris clair : #F3F4F6 (`AppColors.greyLight`)
 - Gris foncé : #374151 (`AppColors.greyDark`)
 
+### Variantes d'état (nouvelles - Priorité 6)
+- Hover : #1F1F1F (`AppColors.primaryHover`)
+- Pressed : #0A0A0A (`AppColors.primaryPressed`)
+- Disabled : #9CA3AF (`AppColors.primaryDisabled`)
+- Surface élevée : #FAFAFA (`AppColors.surfaceElevated`)
+- Surface enfoncée : #E5E7EB (`AppColors.surfacePressed`)
+
+### Couleurs overlay
+- Overlay léger : rgba(0,0,0,0.06) (`AppColors.overlayLight`)
+- Overlay moyen : rgba(0,0,0,0.10) (`AppColors.overlayMedium`)
+- Overlay foncé : rgba(0,0,0,0.20) (`AppColors.overlayDark`)
+
+### Couleurs spécialisées
+- Timer actif : success (`AppColors.timerActive`)
+- Timer en pause : warning (`AppColors.timerPaused`)
+- Timer terminé : black (`AppColors.timerCompleted`)
+- Progress actif : black (`AppColors.progressActive`)
+- Progress inactif : grey (`AppColors.progressInactive`)
+
 ## Typographie
 
 ### Police
@@ -37,6 +56,18 @@
 - Messages d'état : Success, Warning, Error, Info
 - Formulaires : Label, Input, Placeholder
 - Navigation : NavigationItem
+
+### Variantes de boutons (nouvelles - Priorité 6)
+- Bouton primaire : 18px medium blanc (`AppTextStyles.buttonPrimary`)
+- Bouton secondaire : 18px medium noir (`AppTextStyles.buttonSecondary`)
+- Bouton petit : 14px medium blanc (`AppTextStyles.buttonSmall`)
+- Bouton grand : 22px medium blanc (`AppTextStyles.buttonLarge`)
+- Bouton désactivé : 18px medium gris (`AppTextStyles.buttonDisabled`)
+
+### Styles d'état (nouveaux)
+- Texte hover : 16px medium hover (`AppTextStyles.textHover`)
+- Texte pressed : 16px medium pressed (`AppTextStyles.textPressed`)
+- Texte sélectionné : 16px bold noir (`AppTextStyles.textSelected`)
 
 ## Spacing
 
@@ -59,6 +90,13 @@
 - Padding principal : 24px (`AppDimensions.mainPadding`)
 - Hauteur bouton : 60px (`AppDimensions.buttonHeight`)
 - Radius bouton : 16px (`AppDimensions.buttonRadius`)
+
+### Helpers EdgeInsets (nouveaux - Priorité 6)
+- Padding uniforme : `AppSpacing.allS()`, `AppSpacing.allM()`, `AppSpacing.allL()`
+- Padding horizontal : `AppSpacing.horizontalS()`, `AppSpacing.horizontalM()`, `AppSpacing.horizontalL()`
+- Padding vertical : `AppSpacing.verticalS()`, `AppSpacing.verticalM()`, `AppSpacing.verticalL()`
+- Padding directionnel : `AppSpacing.bottomS()`, `AppSpacing.bottomL()`
+- Combinaisons courantes : `AppSpacing.listItem()`, `AppSpacing.formField()`, `AppSpacing.card()`
 
 ## Animations
 
@@ -128,6 +166,41 @@ DesignSystemValidator.isValidColor(color)
 
 // Trouver l'espacement le plus proche
 DesignSystemValidator.getNearestValidSpacing(20.0) // → 24.0
+```
+
+## Composants étendus (Priorité 6)
+
+### AppCard
+Carte standardisée avec variantes et élévation :
+```dart
+AppCard(
+  variant: AppCardVariant.standard, // compact, standard, spacious
+  elevated: true,
+  onTap: () => action(),
+  child: content,
+)
+```
+
+### AppChip
+Chip avec états visuels :
+```dart
+AppChip(
+  label: 'Active',
+  state: AppChipState.active, // normal, selected, disabled, active, warning, error
+  onTap: () => toggle(),
+)
+```
+
+### Usage des nouveaux helpers
+```dart
+// Remplace EdgeInsets.all(16.0)
+Container(padding: AppSpacing.allM())
+
+// Remplace EdgeInsets.only(bottom: 24.0)
+Container(padding: AppSpacing.bottomL())
+
+// Remplace EdgeInsets.symmetric(horizontal: 24.0)
+Container(padding: AppSpacing.horizontalL())
 ```
 
 ## Extension du système

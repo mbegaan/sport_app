@@ -178,4 +178,66 @@ class AppTextStyles {
     color: AppColors.grey,
     fontFamily: AppTypography.fontFamily,
   );
+  
+  // === VARIANTES DE BOUTONS (nouveaux) ===
+  // Styles spécialisés pour différents types de boutons
+  
+  static const buttonPrimary = TextStyle(
+    fontSize: 18.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.white,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  static const buttonSecondary = TextStyle(
+    fontSize: 18.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.black,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  static const buttonSmall = TextStyle(
+    fontSize: 14.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.white,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  static const buttonLarge = TextStyle(
+    fontSize: 22.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.white,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  static const buttonDisabled = TextStyle(
+    fontSize: 18.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.primaryDisabled,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  // === STYLES ÉTAT (nouvelles variantes) ===
+  // Pour feedbacks d'interaction
+  
+  static const textHover = TextStyle(
+    fontSize: 16.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.primaryHover,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  static const textPressed = TextStyle(
+    fontSize: 16.0,
+    fontWeight: AppTypography.medium,
+    color: AppColors.primaryPressed,
+    fontFamily: AppTypography.fontFamily,
+  );
+  
+  static const textSelected = TextStyle(
+    fontSize: 16.0,
+    fontWeight: AppTypography.bold,
+    color: AppColors.black,
+    fontFamily: AppTypography.fontFamily,
+  );
 }
