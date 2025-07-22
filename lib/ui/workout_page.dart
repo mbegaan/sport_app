@@ -15,6 +15,7 @@ import 'widgets/app_button.dart';
 import 'widgets/exercise_progress_header.dart';
 import 'widgets/rep_counter.dart';
 import 'widgets/rep_controls.dart';
+import 'widgets/responsive_builder.dart';
 import 'animations/breathing_animation.dart';
 import 'animations/effort_animation.dart';
 
@@ -261,53 +262,60 @@ class _WorkoutPageState extends State<WorkoutPage> {
             }
             
             // Interface normale d'exercice
-            return Column(
-              children: [
-                // En-tête avec bouton retour et progression
-                Padding(
-                  padding: EdgeInsets.all(AppDimensions.mainPadding),
-                  child: Row(
-                    children: [
-                      // Bouton retour discret
-                      GestureDetector(
-                        onTap: () => context.go('/'),
-                        child: Container(
-                          padding: EdgeInsets.all(AppSpacing.gapS),
-                          decoration: BoxDecoration(
-                            color: AppColors.white,
-                            borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
-                            border: Border.all(color: AppColors.black, width: AppDimensions.borderWidth),
+            return ResponsiveBuilder(
+              builder: (context, screenWidth) {
+                final padding = AppDimensions.paddingResponsive(screenWidth);
+                final sectionSpacing = AppDimensions.sectionSpacingResponsive(screenWidth);
+                
+                return Column(
+                  children: [
+                    // En-tête avec bouton retour et progression
+                    Padding(
+                      padding: EdgeInsets.all(padding),
+                      child: Row(
+                        children: [
+                          // Bouton retour discret
+                          GestureDetector(
+                            onTap: () => context.go('/'),
+                            child: Container(
+                              padding: EdgeInsets.all(AppSpacing.gapS),
+                              decoration: BoxDecoration(
+                                color: AppColors.white,
+                                borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
+                                border: Border.all(color: AppColors.black, width: AppDimensions.borderWidth),
+                              ),
+                              child: Icon(
+                                Icons.close,
+                                size: AppDimensions.iconSizeSmall,
+                                color: AppColors.black,
+                              ),
+                            ),
                           ),
-                          child: Icon(
-                            Icons.close,
-                            size: AppDimensions.iconSizeSmall,
-                            color: AppColors.black,
-                          ),
-                        ),
+                          const Spacer(),
+                          const Spacer(),
+                          SizedBox(width: AppSpacing.gapXL), // Balance visuelle
+                        ],
                       ),
-                      const Spacer(),
-                      const Spacer(),
-                      SizedBox(width: AppSpacing.gapXL), // Balance visuelle
-                    ],
-                  ),
-                ),
-                
-                // Exercice avec fractions
-                ExerciseProgressHeader(
-                  currentExerciseIndex: _currentExerciseIndex,
-                  totalExercises: _session!.exercises.length,
-                  exerciseName: currentExercise.name,
-                  currentSet: _currentSet,
-                  totalSets: currentExercise.numberOfSets,
-                ),
-                
-                SizedBox(height: AppDimensions.sectionSpacing),
-                
-                // Zone principale centrée sur l'exercice
-                Expanded(
-                  child: _buildExerciseContent(currentExercise, timerState, l10n),
-                ),
-              ],
+                    ),
+                    
+                    // Exercice avec fractions
+                    ExerciseProgressHeader(
+                      currentExerciseIndex: _currentExerciseIndex,
+                      totalExercises: _session!.exercises.length,
+                      exerciseName: currentExercise.name,
+                      currentSet: _currentSet,
+                      totalSets: currentExercise.numberOfSets,
+                    ),
+                    
+                    SizedBox(height: sectionSpacing),
+                    
+                    // Zone principale centrée sur l'exercice
+                    Expanded(
+                      child: _buildExerciseContent(currentExercise, timerState, l10n),
+                    ),
+                  ],
+                );
+              },
             );
           },
         ),

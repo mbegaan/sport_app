@@ -4,6 +4,7 @@ import 'theme/app_text_styles.dart';
 import 'theme/app_dimensions.dart';
 import 'theme/app_spacing.dart';
 import 'widgets/app_button.dart';
+import 'widgets/responsive_builder.dart';
 import 'package:go_router/go_router.dart';
 import '../data/json_loader.dart';
 import '../data/program_model.dart';
@@ -52,19 +53,25 @@ class _SessionListPageState extends State<SessionListPage> {
 
             final sessions = snapshot.data!.sessions;
 
-            return ListView.builder(
-              padding: EdgeInsets.all(AppDimensions.mainPadding),
-              itemCount: sessions.length,
-              itemBuilder: (context, index) {
-                final session = sessions[index];
+            return ResponsiveBuilder(
+              builder: (context, screenWidth) {
+                final padding = AppDimensions.paddingResponsive(screenWidth);
                 
-                return Padding(
-                  padding: EdgeInsets.only(bottom: AppSpacing.gapL),
-                  child: AppButton(
-                    label: session.name,
-                    onPressed: () => context.go('/session/${session.id}'),
-                    type: AppButtonType.primary,
-                  ),
+                return ListView.builder(
+                  padding: EdgeInsets.all(padding),
+                  itemCount: sessions.length,
+                  itemBuilder: (context, index) {
+                    final session = sessions[index];
+                    
+                    return Padding(
+                      padding: EdgeInsets.only(bottom: AppSpacing.gapL),
+                      child: AppButton(
+                        label: session.name,
+                        onPressed: () => context.go('/session/${session.id}'),
+                        type: AppButtonType.primary,
+                      ),
+                    );
+                  },
                 );
               },
             );

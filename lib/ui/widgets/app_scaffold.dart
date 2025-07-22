@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 import '../theme/app_dimensions.dart';
+import 'responsive_builder.dart';
 
 class AppScaffold extends StatelessWidget {
   final Widget child;
@@ -17,9 +18,15 @@ class AppScaffold extends StatelessWidget {
     return Scaffold(
       backgroundColor: backgroundColor ?? AppColors.white,
       body: SafeArea(
-        child: Padding(
-          padding: const EdgeInsets.all(AppDimensions.mainPadding),
-          child: child,
+        child: ResponsiveBuilder(
+          builder: (context, screenWidth) {
+            final padding = AppDimensions.paddingResponsive(screenWidth);
+            
+            return Padding(
+              padding: EdgeInsets.all(padding),
+              child: child,
+            );
+          },
         ),
       ),
     );

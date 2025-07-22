@@ -31,6 +31,7 @@ lib/
 │   ├── widgets/                # Composants UI réutilisables
 │   │   ├── app_button.dart     # Bouton standardisé (primary/secondary/icon)
 │   │   ├── app_scaffold.dart   # Scaffold avec padding standard
+│   │   ├── responsive_builder.dart # Helper pour adaptations responsive
 │   │   ├── rep_counter.dart    # Affichage du compteur de répétitions
 │   │   ├── rep_controls.dart   # Contrôles +/- et validation
 │   │   ├── exercise_progress_header.dart # Header de progression
@@ -271,15 +272,75 @@ Text(l10n.exercisesCount(exerciseCount))
 
 ### 3. Responsive Design
 
-**Breakpoints prévus dans AppDimensions** :
+**Infrastructure complète implémentée** avec breakpoints et composants adaptatifs.
+
+**Breakpoints définis** :
 ```dart
 class AppDimensions {
-  static bool isSmallScreen(BuildContext context) => 
-    MediaQuery.of(context).size.width < 600;
+  // Breakpoints responsive
+  static const double smallScreenWidth = 600.0;   // Mobile
+  static const double mediumScreenWidth = 900.0;  // Tablet
+  static const double largeScreenWidth = 1200.0;  // Desktop
   
-  // Tailles adaptatives
-  static double paddingResponsive(BuildContext context) =>
-    isSmallScreen(context) ? mainPadding : mainPadding * 1.5;
+  // Méthodes de détection
+  static bool isSmallScreen(double width) => width < smallScreenWidth;
+  static bool isMediumScreen(double width) => width >= smallScreenWidth && width < largeScreenWidth;
+  static bool isLargeScreen(double width) => width >= largeScreenWidth;
+  
+  // Adaptations automatiques
+  static double paddingResponsive(double screenWidth) {
+    if (isSmallScreen(screenWidth)) return mainPadding;           // 24px
+    if (isMediumScreen(screenWidth)) return mainPadding * 1.5;    // 36px
+    return mainPadding * 2;                                       // 48px
+  }
+  
+  static double buttonHeightResponsive(double screenWidth) {
+    return isSmallScreen(screenWidth) ? buttonHeight : 48.0;      // 60px -> 48px
+  }
+}
+```
+
+**Helper widgets responsifs** :
+```dart
+// ResponsiveBuilder : Widget wrapper pour adaptations screen-width
+ResponsiveBuilder(
+  builder: (context, screenWidth) {
+    return Container(
+      padding: EdgeInsets.all(AppDimensions.paddingResponsive(screenWidth)),
+      child: child,
+    );
+  },
+)
+
+// ResponsiveContext : Extension pour accès direct
+context.isSmallScreen     // bool
+context.paddingResponsive // double adaptée
+context.buttonHeight      // double adaptée
+```
+
+**Composants adaptatifs** :
+- **AppButton** : Hauteur responsive (60px mobile, 48px tablet/desktop)
+- **AppScaffold** : Padding adaptatif selon la taille d'écran  
+- **RepCounter** : Taille de police responsive (60px/80px/100px)
+- **Toutes les pages** : Spacing et padding adaptatifs
+
+**Pattern d'usage** :
+```dart
+class MonWidget extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return ResponsiveBuilder(
+      builder: (context, screenWidth) {
+        return Padding(
+          padding: EdgeInsets.all(AppDimensions.paddingResponsive(screenWidth)),
+          child: Text(
+            'Titre',
+            style: AppTextStyles.exerciseTitleResponsive(screenWidth),
+          ),
+        );
+      },
+    );
+  }
 }
 ```
 
