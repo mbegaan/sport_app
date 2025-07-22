@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../data/json_loader.dart';
 import '../data/program_model.dart';
+import '../l10n/app_localizations.dart';
 import '../utils/timer_notifier.dart';
+import '../utils/error_handler.dart';
 import 'theme/app_colors.dart';
 import 'theme/app_text_styles.dart';
 import 'theme/app_dimensions.dart';
@@ -37,6 +39,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
   int _completedReps = 0;
   bool _isLoading = true;
   bool _isWorkoutComplete = false;
+  bool _hasShownCompletionSnackBar = false;
 
   @override
   void initState() {
@@ -77,6 +80,14 @@ class _WorkoutPageState extends State<WorkoutPage> {
       setState(() {
         _isLoading = false;
       });
+      // Afficher une SnackBar d'erreur si on est dans le widget tree
+      if (mounted) {
+        ErrorHandler.showErrorSnackBar(
+          context,
+          e,
+          contextInfo: 'WorkoutPage._loadSession',
+        );
+      }
     }
   }
 
@@ -145,17 +156,6 @@ class _WorkoutPageState extends State<WorkoutPage> {
     
     _timerNotifier.stopTimer();
     
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-        content: Text(
-          'Séance terminée 🎉 Félicitations !',
-          style: AppTextStyles.button,
-        ),
-        backgroundColor: AppColors.grey,
-        duration: const Duration(seconds: 3),
-      ),
-    );
-    
     // Retourner à l'accueil après 3 secondes
     Future.delayed(const Duration(seconds: 3), () {
       if (mounted) {
@@ -164,8 +164,23 @@ class _WorkoutPageState extends State<WorkoutPage> {
     });
   }
 
+  void _showCompletionSnackBar(String message) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(
+        content: Text(
+          message,
+          style: AppTextStyles.button,
+        ),
+        backgroundColor: AppColors.grey,
+        duration: const Duration(seconds: 3),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     if (_isLoading) {
       return Scaffold(
         backgroundColor: AppColors.white,
@@ -181,16 +196,30 @@ class _WorkoutPageState extends State<WorkoutPage> {
     if (_session == null) {
       return Scaffold(
         backgroundColor: AppColors.white,
-        body: Center(
-          child: Text(
-            'Séance introuvable',
-            style: AppTextStyles.errorMessage,
-          ),
+        body: ErrorHandler.buildErrorWidget(
+          Exception(l10n.errorSessionNotFound),
+          l10n,
+          contextInfo: 'WorkoutPage.session_null',
+          onRetry: () {
+            JsonLoader.clearCache();
+            setState(() {
+              _isLoading = true;
+              _loadSession();
+            });
+          },
         ),
       );
     }
 
     if (_isWorkoutComplete) {
+      // Afficher le SnackBar une seule fois quand le workout est complété
+      if (!_hasShownCompletionSnackBar) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _showCompletionSnackBar(l10n.workoutComplete);
+        });
+        _hasShownCompletionSnackBar = true;
+      }
+      
       return Scaffold(
         backgroundColor: AppColors.black,
         body: Center(
@@ -204,12 +233,12 @@ class _WorkoutPageState extends State<WorkoutPage> {
               ),
               SizedBox(height: AppSpacing.gapXL),
               Text(
-                'Séance terminée',
+                l10n.workoutComplete.split(' 🎉 ')[0], // "Séance terminée"
                 style: AppTextStyles.completionTitle,
               ),
               SizedBox(height: AppSpacing.gapM),
               Text(
-                'Félicitations !',
+                l10n.workoutComplete.split(' 🎉 ')[1], // "Félicitations !"
                 style: AppTextStyles.completionSubtitle,
               ),
             ],
@@ -276,7 +305,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 
                 // Zone principale centrée sur l'exercice
                 Expanded(
-                  child: _buildExerciseContent(currentExercise, timerState),
+                  child: _buildExerciseContent(currentExercise, timerState, l10n),
                 ),
               ],
             );
@@ -286,9 +315,9 @@ class _WorkoutPageState extends State<WorkoutPage> {
     );
   }
 
-  Widget _buildExerciseContent(Exercise exercise, TimerState timerState) {
+  Widget _buildExerciseContent(Exercise exercise, TimerState timerState, AppLocalizations l10n) {
     if (exercise.isDurationBased) {
-      return _buildDurationExerciseContent(exercise, timerState);
+      return _buildDurationExerciseContent(exercise, timerState, l10n);
     } else {
       return _buildRepsExerciseContent(exercise, timerState);
     }
@@ -306,7 +335,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     );
   }
 
-  Widget _buildDurationExerciseContent(Exercise exercise, TimerState timerState) {
+  Widget _buildDurationExerciseContent(Exercise exercise, TimerState timerState, AppLocalizations l10n) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -325,7 +354,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
             SizedBox(
               width: AppDimensions.startButtonWidth,
               child: AppButton(
-                label: 'DÉMARRER',
+                label: l10n.startWorkout,
                 onPressed: () => _timerNotifier.startExerciseTimer(exercise.exerciseDuration!),
                 type: AppButtonType.primary,
               ),

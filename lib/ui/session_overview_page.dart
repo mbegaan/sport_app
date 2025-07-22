@@ -4,13 +4,15 @@ import 'theme/app_text_styles.dart';
 import 'theme/app_dimensions.dart';
 import 'theme/app_spacing.dart';
 import 'widgets/app_button.dart';
-import 'widgets/exercise_card.dart';
 import 'package:go_router/go_router.dart';
 import '../data/json_loader.dart';
 import '../data/program_model.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/error_handler.dart';
+import '../utils/app_exceptions.dart';
 
 /// Page affichant l'aperçu d'une séance avec la liste des exercices
-class SessionOverviewPage extends StatelessWidget {
+class SessionOverviewPage extends StatefulWidget {
   final String sessionId;
 
   const SessionOverviewPage({
@@ -19,7 +21,14 @@ class SessionOverviewPage extends StatelessWidget {
   });
 
   @override
+  State<SessionOverviewPage> createState() => _SessionOverviewPageState();
+}
+
+class _SessionOverviewPageState extends State<SessionOverviewPage> {
+  @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;;
+    
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -33,11 +42,14 @@ class SessionOverviewPage extends StatelessWidget {
             }
 
             if (snapshot.hasError || !snapshot.hasData) {
-              return const Center(
-                child: Text(
-                  'Erreur de chargement',
-                  style: AppTextStyles.exerciseTitle,
-                ),
+              return ErrorHandler.buildErrorWidget(
+                snapshot.error ?? Exception(l10n.noProgram),
+                l10n,
+                contextInfo: 'SessionOverviewPage.loadProgram',
+                onRetry: () {
+                  JsonLoader.clearCache();
+                  setState(() {}); // Force rebuild pour relancer FutureBuilder
+                },
               );
             }
 
@@ -45,14 +57,22 @@ class SessionOverviewPage extends StatelessWidget {
             late Session session;
             try {
               session = program.sessions.firstWhere(
-                (s) => s.id.toString() == sessionId,
+                (s) => s.id.toString() == widget.sessionId,
               );
             } catch (e) {
-              return const Center(
-                child: Text(
-                  'Séance introuvable',
-                  style: AppTextStyles.exerciseTitle,
-                ),
+              final notFoundError = NotFoundException(
+                message: 'Séance introuvable',
+                details: 'session_id:${widget.sessionId}',
+                originalError: e,
+              );
+              return ErrorHandler.buildErrorWidget(
+                notFoundError,
+                l10n,
+                contextInfo: 'SessionOverviewPage.findSession',
+                onRetry: () {
+                  JsonLoader.clearCache();
+                  setState(() {}); // Force rebuild pour relancer FutureBuilder
+                },
               );
             }
 
@@ -107,7 +127,7 @@ class SessionOverviewPage extends StatelessWidget {
                               borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
                             ),
                             child: Text(
-                              '${session.exercises.length} exercices',
+                              l10n.exercisesCount(session.exercises.length),
                               style: AppTextStyles.exerciseTitle.copyWith(color: AppColors.black),
                             ),
                           ),
@@ -116,8 +136,21 @@ class SessionOverviewPage extends StatelessWidget {
                           
                           // Bouton principal - point focal unique
                           AppButton(
-                            label: 'COMMENCER',
-                            onPressed: () => context.go('/workout/${session.id}'),
+                            label: l10n.startButton,
+                            onPressed: () {
+                              if (session.exercises.isEmpty) {
+                                ErrorHandler.showErrorSnackBar(
+                                  context,
+                                  ValidationException(
+                                    message: 'Aucun exercice dans cette séance',
+                                    details: 'session_id:${widget.sessionId}',
+                                  ),
+                                  contextInfo: 'SessionOverviewPage.startWorkout',
+                                );
+                                return;
+                              }
+                              context.go('/workout/${session.id}');
+                            },
                             type: AppButtonType.primary,
                           ),
                         ],

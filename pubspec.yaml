@@ -20,7 +20,7 @@ publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 version: 1.0.0+1
 
 environment:
-  sdk: '>=2.19.0-146.2.beta <3.0.0'
+  sdk: '>=3.0.0 <4.0.0'
 
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
@@ -37,6 +37,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   go_router: ^7.1.1
   wakelock_plus: ^1.1.2
+  flutter_localizations:
+    sdk: flutter
+  intl: ^0.20.2
 
 dev_dependencies:
   flutter_test:
@@ -58,6 +61,11 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  generate: true
+  # Ajout de la configuration l10n
+  # Pour activer la génération automatique des fichiers de traduction
+  # Voir la doc Flutter : https://docs.flutter.dev/accessibility-and-localization/internationalization
+  # Les fichiers .arb seront placés dans lib/l10n/
 
   # To add assets to your application, add an assets section, like this:
   assets:

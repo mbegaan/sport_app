@@ -1,0 +1,41 @@
+{
+  "@@locale": "fr",
+  "appTitle": "Sport App",
+  "loading": "Chargement...",
+  "errorLoading": "Erreur de chargement",
+  "noProgram": "Aucun programme",
+  "programName": "{programName}",
+  "sessions": "Séances",
+  "session": "Séance",
+  "startWorkout": "Démarrer la séance",
+  "workoutComplete": "Séance terminée 🎉 Félicitations !",
+  "rest": "Repos",
+  "seconds": "{seconds} s",
+  "validate": "Valider",
+  "increment": "+",
+  "decrement": "-",
+  "exercise": "Exercice",
+  "set": "Série",
+  "setOf": "sur",
+  "next": "Suivant",
+  "previous": "Précédent",
+  "focus": "Focus : {focus}",
+  "errorSessionNotFound": "Séance introuvable",
+  "errorNoExercises": "Aucun exercice dans cette séance",
+  "back": "Retour",
+  "exercisesCount": "{count} exercices",
+  "@exercisesCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
+  "startButton": "COMMENCER",
+  "errorDataFormat": "Erreur de format des données",
+  "errorNotFound": "Ressource introuvable",
+  "errorValidation": "Erreur de validation",
+  "errorNetwork": "Erreur de connexion",
+  "errorUnknown": "Erreur inconnue",
+  "retry": "Réessayer"
+}

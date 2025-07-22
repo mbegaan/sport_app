@@ -1,17 +1,26 @@
 import 'package:flutter/material.dart';
-import 'theme/app_colors.dart';
-import 'theme/app_text_styles.dart';
-import 'theme/app_dimensions.dart';
 import 'package:go_router/go_router.dart';
 import '../data/json_loader.dart';
 import '../data/program_model.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/error_handler.dart';
+import 'theme/app_colors.dart';
+import 'theme/app_text_styles.dart';
+import 'theme/app_dimensions.dart';
 
 /// Page d'accueil affichant la liste des programmes disponibles
-class ProgramListPage extends StatelessWidget {
+class ProgramListPage extends StatefulWidget {
   const ProgramListPage({super.key});
 
   @override
+  State<ProgramListPage> createState() => _ProgramListPageState();
+}
+
+class _ProgramListPageState extends State<ProgramListPage> {
+  @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -28,18 +37,21 @@ class ProgramListPage extends StatelessWidget {
             }
 
             if (snapshot.hasError) {
-              return const Center(
-                child: Text(
-                  'Erreur de chargement',
-                  style: AppTextStyles.exerciseTitle,
-                ),
+              return ErrorHandler.buildErrorWidget(
+                snapshot.error!,
+                l10n,
+                contextInfo: 'ProgramListPage.loadProgram',
+                onRetry: () {
+                  JsonLoader.clearCache();
+                  setState(() {}); // Force rebuild pour relancer FutureBuilder
+                },
               );
             }
 
             if (!snapshot.hasData) {
-              return const Center(
+              return Center(
                 child: Text(
-                  'Aucun programme',
+                  l10n.noProgram,
                   style: AppTextStyles.exerciseTitle,
                 ),
               );

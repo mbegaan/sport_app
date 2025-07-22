@@ -1,3 +1,5 @@
+import 'package:flutter/material.dart';
+
 /// Typographie centralisée pour l'app
 class AppTypography {
   static const String fontFamily = 'Inter';

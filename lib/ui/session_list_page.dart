@@ -4,17 +4,25 @@ import 'theme/app_text_styles.dart';
 import 'theme/app_dimensions.dart';
 import 'theme/app_spacing.dart';
 import 'widgets/app_button.dart';
-import 'widgets/app_scaffold.dart';
 import 'package:go_router/go_router.dart';
 import '../data/json_loader.dart';
 import '../data/program_model.dart';
+import '../l10n/app_localizations.dart';
+import '../utils/error_handler.dart';
 
 /// Page affichant la liste des séances d'un programme
-class SessionListPage extends StatelessWidget {
+class SessionListPage extends StatefulWidget {
   const SessionListPage({super.key});
 
   @override
+  State<SessionListPage> createState() => _SessionListPageState();
+}
+
+class _SessionListPageState extends State<SessionListPage> {
+  @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
@@ -31,11 +39,14 @@ class SessionListPage extends StatelessWidget {
             }
 
             if (snapshot.hasError || !snapshot.hasData) {
-              return const Center(
-                child: Text(
-                  'Erreur de chargement',
-                  style: AppTextStyles.exerciseTitle,
-                ),
+              return ErrorHandler.buildErrorWidget(
+                snapshot.error ?? Exception(l10n.noProgram),
+                l10n,
+                contextInfo: 'SessionListPage.loadProgram',
+                onRetry: () {
+                  JsonLoader.clearCache();
+                  setState(() {}); // Force rebuild pour relancer FutureBuilder
+                },
               );
             }
 
