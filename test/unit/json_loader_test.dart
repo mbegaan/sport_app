@@ -2,7 +2,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/services.dart';
 import 'package:sport_app/data/json_loader.dart';
-import 'package:sport_app/data/program_model.dart';
 
 // Mock complet de l'AssetBundle pour les tests
 class MockAssetBundle extends AssetBundle {

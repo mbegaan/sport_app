@@ -33,7 +33,7 @@ class RepControls extends StatelessWidget {
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.remove,
                 size: AppDimensions.iconSizeMedium,
                 color: AppColors.black,
@@ -41,7 +41,7 @@ class RepControls extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: AppSpacing.gapM),
+        const SizedBox(width: AppSpacing.gapM),
         
         // Bouton ✓
         Expanded(
@@ -55,7 +55,7 @@ class RepControls extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: AppSpacing.gapM),
+        const SizedBox(width: AppSpacing.gapM),
         
         // Bouton +
         Expanded(
@@ -67,7 +67,7 @@ class RepControls extends StatelessWidget {
                 color: AppColors.white,
                 borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
               ),
-              child: Icon(
+              child: const Icon(
                 Icons.add,
                 size: AppDimensions.iconSizeMedium,
                 color: AppColors.black,

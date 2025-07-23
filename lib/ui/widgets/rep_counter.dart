@@ -1,4 +1,3 @@
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'responsive_builder.dart';
 import '../theme/app_colors.dart';
@@ -19,7 +18,7 @@ class RepCounter extends StatelessWidget {
     return ResponsiveBuilder(
       builder: (context, screenWidth) {
         return Container(
-          padding: EdgeInsets.all(AppDimensions.repCounterPadding),
+          padding: const EdgeInsets.all(AppDimensions.repCounterPadding),
           decoration: BoxDecoration(
             color: AppColors.white,
             borderRadius: BorderRadius.circular(AppDimensions.buttonRadius * 2),
@@ -27,7 +26,7 @@ class RepCounter extends StatelessWidget {
           child: Text(
             '$count',
             style: AppTextStyles.repCounterResponsive(screenWidth).copyWith(
-              fontFeatures: [FontFeature.tabularFigures()],
+              fontFeatures: [const FontFeature.tabularFigures()],
             ),
           ),
         );

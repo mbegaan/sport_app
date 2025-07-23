@@ -18,11 +18,11 @@ void main() async {
     print('Wakelock non supporté sur cette plateforme: $e');
   }
   
-  runApp(SportAppDebug());
+  runApp(const SportAppDebug());
 }
 
 class SportAppDebug extends StatelessWidget {
-  SportAppDebug({super.key});
+  const SportAppDebug({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -49,7 +49,7 @@ class SportAppDebug extends StatelessWidget {
       ),
       home: Scaffold(
         appBar: AppBar(
-          title: Text('Sport App - Test'),
+          title: const Text('Sport App - Test'),
           backgroundColor: Colors.blue,
           foregroundColor: Colors.white,
         ),
@@ -57,23 +57,23 @@ class SportAppDebug extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(Icons.fitness_center, size: 100, color: Colors.blue),
-              SizedBox(height: 20),
-              Text(
+              const Icon(Icons.fitness_center, size: 100, color: Colors.blue),
+              const SizedBox(height: 20),
+              const Text(
                 'Sport App Fonctionne !',
                 style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
               ),
-              SizedBox(height: 20),
+              const SizedBox(height: 20),
               ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => ProgramListPage(),
+                      builder: (context) => const ProgramListPage(),
                     ),
                   );
                 },
-                child: Text('Aller aux Programmes'),
+                child: const Text('Aller aux Programmes'),
               ),
             ],
           ),

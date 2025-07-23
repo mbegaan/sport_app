@@ -26,7 +26,7 @@ void main() {
 
       test('doit convertir une erreur JSON en DataParsingException', () {
         // Given
-        final error = FormatException('Invalid JSON');
+        const error = FormatException('Invalid JSON');
         
         // When
         final result = ErrorHandler.handleError(error);

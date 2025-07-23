@@ -1,5 +1,3 @@
-import 'dart:ui';
-import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import '../data/json_loader.dart';
@@ -183,7 +181,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     final l10n = AppLocalizations.of(context)!;
     
     if (_isLoading) {
-      return Scaffold(
+      return const Scaffold(
         backgroundColor: AppColors.white,
         body: Center(
           child: CircularProgressIndicator(
@@ -227,17 +225,17 @@ class _WorkoutPageState extends State<WorkoutPage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Icon(
+              const Icon(
                 Icons.check_circle_outline,
                 size: AppDimensions.iconSizeLarge,
                 color: AppColors.white,
               ),
-              SizedBox(height: AppSpacing.gapXL),
+              const SizedBox(height: AppSpacing.gapXL),
               Text(
                 l10n.workoutComplete.split(' 🎉 ')[0], // "Séance terminée"
                 style: AppTextStyles.completionTitle,
               ),
-              SizedBox(height: AppSpacing.gapM),
+              const SizedBox(height: AppSpacing.gapM),
               Text(
                 l10n.workoutComplete.split(' 🎉 ')[1], // "Félicitations !"
                 style: AppTextStyles.completionSubtitle,
@@ -264,27 +262,26 @@ class _WorkoutPageState extends State<WorkoutPage> {
             // Interface normale d'exercice
             return ResponsiveBuilder(
               builder: (context, screenWidth) {
-                final padding = AppDimensions.paddingResponsive(screenWidth);
                 final sectionSpacing = AppDimensions.sectionSpacingResponsive(screenWidth);
                 
                 return Column(
                   children: [
                     // En-tête avec bouton retour et progression
                     Padding(
-                      padding: EdgeInsets.all(padding),
+                      padding: AppSpacing.allL(),
                       child: Row(
                         children: [
                           // Bouton retour discret
                           GestureDetector(
                             onTap: () => context.go('/'),
                             child: Container(
-                              padding: EdgeInsets.all(AppSpacing.gapS),
+                              padding: const EdgeInsets.all(AppSpacing.gapS),
                               decoration: BoxDecoration(
                                 color: AppColors.white,
                                 borderRadius: BorderRadius.circular(AppDimensions.buttonRadius),
                                 border: Border.all(color: AppColors.black, width: AppDimensions.borderWidth),
                               ),
-                              child: Icon(
+                              child: const Icon(
                                 Icons.close,
                                 size: AppDimensions.iconSizeSmall,
                                 color: AppColors.black,
@@ -293,7 +290,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                           ),
                           const Spacer(),
                           const Spacer(),
-                          SizedBox(width: AppSpacing.gapXL), // Balance visuelle
+                          const SizedBox(width: AppSpacing.gapXL), // Balance visuelle
                         ],
                       ),
                     ),
@@ -352,7 +349,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
             // Animation d'effort - disque qui se réduit
             EffortAnimation(progress: timerState.progress),
           ] else if (timerState.isExerciseCompleted) ...[
-            Icon(
+            const Icon(
               Icons.check_circle_outline,
               size: AppDimensions.iconSizeLarge,
               color: AppColors.black,
@@ -375,14 +372,14 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   Widget _buildRepsExerciseContent(Exercise exercise, TimerState timerState) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppDimensions.mainPadding + AppSpacing.gapM),
+      padding: AppSpacing.horizontalL(),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Compteur central - focus unique
           RepCounter(count: _completedReps),
           
-          SizedBox(height: AppDimensions.sectionSpacing),
+          const SizedBox(height: AppDimensions.sectionSpacing),
           
           // Contrôles minimalistes
           RepControls(

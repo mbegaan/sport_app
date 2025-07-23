@@ -3,7 +3,6 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:sport_app/ui/widgets/app_button.dart';
 import 'package:sport_app/ui/widgets/responsive_builder.dart';
 import 'package:sport_app/ui/theme/app_colors.dart';
-import 'package:sport_app/ui/theme/app_dimensions.dart';
 
 void main() {
   group('AppButton Widget Tests', () {

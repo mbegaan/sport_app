@@ -19,6 +19,7 @@ class MockBundle extends AssetBundle {
   }
   
   /// Nettoie tous les assets et erreurs
+  @override
   void clear() {
     _assets.clear();
     _errors.clear();

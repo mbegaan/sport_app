@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'theme/app_colors.dart';
-import 'theme/app_text_styles.dart';
 import 'theme/app_dimensions.dart';
 import 'theme/app_spacing.dart';
 import 'widgets/app_button.dart';
@@ -64,7 +63,7 @@ class _SessionListPageState extends State<SessionListPage> {
                     final session = sessions[index];
                     
                     return Padding(
-                      padding: EdgeInsets.only(bottom: AppSpacing.gapL),
+                      padding: const EdgeInsets.only(bottom: AppSpacing.gapL),
                       child: AppButton(
                         label: session.name,
                         onPressed: () => context.go('/session/${session.id}'),

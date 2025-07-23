@@ -33,32 +33,32 @@ class AppSpacing {
   
   /// Padding uniforme avec token
   static EdgeInsets all(double value) => EdgeInsets.all(value);
-  static EdgeInsets allXS() => EdgeInsets.all(gapXS);
-  static EdgeInsets allS() => EdgeInsets.all(gapS);
-  static EdgeInsets allM() => EdgeInsets.all(gapM);
-  static EdgeInsets allL() => EdgeInsets.all(gapL);
-  static EdgeInsets allXL() => EdgeInsets.all(gapXL);
+  static EdgeInsets allXS() => const EdgeInsets.all(gapXS);
+  static EdgeInsets allS() => const EdgeInsets.all(gapS);
+  static EdgeInsets allM() => const EdgeInsets.all(gapM);
+  static EdgeInsets allL() => const EdgeInsets.all(gapL);
+  static EdgeInsets allXL() => const EdgeInsets.all(gapXL);
   
   /// Padding horizontal avec tokens
-  static EdgeInsets horizontalS() => EdgeInsets.symmetric(horizontal: gapS);
-  static EdgeInsets horizontalM() => EdgeInsets.symmetric(horizontal: gapM);
-  static EdgeInsets horizontalL() => EdgeInsets.symmetric(horizontal: gapL);
-  static EdgeInsets horizontalXL() => EdgeInsets.symmetric(horizontal: gapXL);
+  static EdgeInsets horizontalS() => const EdgeInsets.symmetric(horizontal: gapS);
+  static EdgeInsets horizontalM() => const EdgeInsets.symmetric(horizontal: gapM);
+  static EdgeInsets horizontalL() => const EdgeInsets.symmetric(horizontal: gapL);
+  static EdgeInsets horizontalXL() => const EdgeInsets.symmetric(horizontal: gapXL);
   
   /// Padding vertical avec tokens
-  static EdgeInsets verticalS() => EdgeInsets.symmetric(vertical: gapS);
-  static EdgeInsets verticalM() => EdgeInsets.symmetric(vertical: gapM);
-  static EdgeInsets verticalL() => EdgeInsets.symmetric(vertical: gapL);
-  static EdgeInsets verticalXL() => EdgeInsets.symmetric(vertical: gapXL);
+  static EdgeInsets verticalS() => const EdgeInsets.symmetric(vertical: gapS);
+  static EdgeInsets verticalM() => const EdgeInsets.symmetric(vertical: gapM);
+  static EdgeInsets verticalL() => const EdgeInsets.symmetric(vertical: gapL);
+  static EdgeInsets verticalXL() => const EdgeInsets.symmetric(vertical: gapXL);
   
   /// Padding directionnel (seulement bottom pour les listes)
-  static EdgeInsets bottomS() => EdgeInsets.only(bottom: gapS);
-  static EdgeInsets bottomM() => EdgeInsets.only(bottom: gapM);
-  static EdgeInsets bottomL() => EdgeInsets.only(bottom: gapL);
-  static EdgeInsets bottomXL() => EdgeInsets.only(bottom: gapXL);
+  static EdgeInsets bottomS() => const EdgeInsets.only(bottom: gapS);
+  static EdgeInsets bottomM() => const EdgeInsets.only(bottom: gapM);
+  static EdgeInsets bottomL() => const EdgeInsets.only(bottom: gapL);
+  static EdgeInsets bottomXL() => const EdgeInsets.only(bottom: gapXL);
   
   /// Combinaisons courantes
-  static EdgeInsets listItem() => EdgeInsets.only(bottom: itemGap);
-  static EdgeInsets formField() => EdgeInsets.only(bottom: formSpacing);
-  static EdgeInsets card() => EdgeInsets.all(cardSpacing);
+  static EdgeInsets listItem() => const EdgeInsets.only(bottom: itemGap);
+  static EdgeInsets formField() => const EdgeInsets.only(bottom: formSpacing);
+  static EdgeInsets card() => const EdgeInsets.all(cardSpacing);
 }

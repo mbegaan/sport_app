@@ -31,7 +31,7 @@ class ExerciseCard extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(name, style: AppTextStyles.exerciseTitle),
-            SizedBox(height: AppSpacing.gapS),
+            const SizedBox(height: AppSpacing.gapS),
             Text(details, style: AppTextStyles.exerciseDetails),
           ],
         ),

@@ -27,7 +27,7 @@ class SessionOverviewPage extends StatefulWidget {
 class _SessionOverviewPageState extends State<SessionOverviewPage> {
   @override
   Widget build(BuildContext context) {
-    final l10n = AppLocalizations.of(context)!;;
+    final l10n = AppLocalizations.of(context)!;
     
     return Scaffold(
       backgroundColor: AppColors.white,

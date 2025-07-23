@@ -38,5 +38,5 @@ class AppAnimations {
   // Pour effets spécifiques à l'app fitness
   static const Curve breathingCurve = Curves.easeInOutSine;  // Respiration naturelle
   static const Curve effortCurve = Curves.easeInQuart;       // Effort progressif
-  static const Curve recoveryCase = Curves.easeOutCubic;     // Récupération
+  static const Curve recoveryCurve = Curves.easeOutCubic;    // Récupération
 }

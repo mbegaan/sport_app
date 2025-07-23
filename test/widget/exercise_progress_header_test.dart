@@ -89,7 +89,7 @@ void main() {
         expect(decoration.color, AppColors.black);
         expect(decoration.borderRadius, 
                BorderRadius.circular(AppDimensions.buttonRadius));
-        expect(container.padding, EdgeInsets.symmetric(
+        expect(container.padding, const EdgeInsets.symmetric(
           horizontal: AppDimensions.progressDotPaddingHorizontal,
           vertical: AppDimensions.progressDotPaddingVertical,
         ));
@@ -215,7 +215,7 @@ void main() {
         expect(decoration.color, AppColors.black);
         expect(decoration.borderRadius, 
                BorderRadius.circular(AppDimensions.buttonRadius));
-        expect(container.padding, EdgeInsets.symmetric(
+        expect(container.padding, const EdgeInsets.symmetric(
           horizontal: AppDimensions.progressDotPaddingHorizontal,
           vertical: AppDimensions.progressDotPaddingVertical,
         ));
@@ -302,7 +302,7 @@ void main() {
 
         // Then
         expect(padding.padding, 
-               EdgeInsets.symmetric(horizontal: AppDimensions.mainPadding));
+               const EdgeInsets.symmetric(horizontal: AppDimensions.mainPadding));
       });
     });
 

@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import '../l10n/app_localizations.dart';
+import '../ui/theme/app_colors.dart';
+import '../ui/theme/app_spacing.dart';
+import '../ui/theme/app_text_styles.dart';
 import 'app_exceptions.dart';
 
 /// Gestionnaire centralisé des erreurs de l'application
@@ -124,16 +127,12 @@ class ErrorHandler {
             Icon(
               _getErrorIcon(appError.type),
               size: 64,
-              color: Colors.grey[600],
+              color: AppColors.grey,
             ),
-            const SizedBox(height: 16),
+            SizedBox(height: AppSpacing.gapM),
             Text(
               message,
-              style: const TextStyle(
-                fontSize: 16,
-                fontWeight: FontWeight.w500,
-                color: Colors.black87,
-              ),
+              style: AppTextStyles.errorMessage,
               textAlign: TextAlign.center,
             ),
             if (onRetry != null) ...[

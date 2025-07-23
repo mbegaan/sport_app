@@ -460,7 +460,7 @@ void main() {
                       ),
                       ElevatedButton(
                         onPressed: () => setState(() => canValidate = !canValidate),
-                        child: Text('Toggle Validate'),
+                        child: const Text('Toggle Validate'),
                       ),
                     ],
                   ),

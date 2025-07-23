@@ -18,11 +18,9 @@ ThemeData buildAppTheme() {
       primary: AppColors.black,
       secondary: AppColors.black,
       surface: AppColors.white,
-      background: AppColors.white,
       onPrimary: AppColors.white,
       onSecondary: AppColors.white,
       onSurface: AppColors.black,
-      onBackground: AppColors.black,
     ),
     
     appBarTheme: const AppBarTheme(
@@ -51,8 +49,8 @@ ThemeData buildAppTheme() {
     
     elevatedButtonTheme: ElevatedButtonThemeData(
       style: ElevatedButton.styleFrom(
-        minimumSize: Size(0, AppDimensions.buttonHeight),
-        padding: EdgeInsets.symmetric(
+        minimumSize: const Size(0, AppDimensions.buttonHeight),
+        padding: const EdgeInsets.symmetric(
           horizontal: AppDimensions.mainPadding + AppSpacing.gapS, 
           vertical: AppSpacing.gapM
         ),
@@ -66,12 +64,12 @@ ThemeData buildAppTheme() {
       ),
     ),
     
-    cardTheme: CardThemeData(
+    cardTheme: const CardThemeData(
       elevation: 0,
       color: AppColors.white,
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.all(Radius.circular(AppDimensions.buttonRadius)),
-        side: const BorderSide(color: AppColors.black, width: 1),
+        side: BorderSide(color: AppColors.black, width: 1),
       ),
     ),
   );

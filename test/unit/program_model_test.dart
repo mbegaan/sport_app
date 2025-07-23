@@ -243,7 +243,7 @@ void main() {
     group('Exercise properties', () {
       test('isDurationBased doit retourner true si durationSec > 0', () {
         // Given: Un exercice avec durationSec
-        final exercise = Exercise(
+        const exercise = Exercise(
           name: 'Planche',
           sets: 3,
           durationSec: 45,
@@ -257,7 +257,7 @@ void main() {
 
       test('isDurationBased doit retourner false si pas de durée', () {
         // Given: Un exercice sans durée
-        final exercise = Exercise(
+        const exercise = Exercise(
           name: 'Push-ups',
           sets: 3,
           reps: [10, 15],
@@ -271,12 +271,12 @@ void main() {
 
       test('numberOfSets doit gérer les sets int et Map', () {
         // Given: Des exercices avec différents types de sets
-        final exerciseWithIntSets = Exercise(
+        const exerciseWithIntSets = Exercise(
           name: 'Exercise 1',
           sets: 4,
         );
 
-        final exerciseWithMapSets = Exercise(
+        const exerciseWithMapSets = Exercise(
           name: 'Exercise 2',
           sets: {'min': 2, 'max': 4},
         );
@@ -288,25 +288,25 @@ void main() {
 
       test('numberOfReps doit gérer différents types de reps', () {
         // Given: Des exercices avec différents types de reps
-        final exerciseWithReps = Exercise(
+        const exerciseWithReps = Exercise(
           name: 'Exercise 1',
           sets: 3,
           reps: [8, 12],
         );
 
-        final exerciseWithRepsPerLeg = Exercise(
+        const exerciseWithRepsPerLeg = Exercise(
           name: 'Exercise 2',
           sets: 3,
           repsPerLeg: 10,
         );
 
-        final exerciseWithRepsPerArm = Exercise(
+        const exerciseWithRepsPerArm = Exercise(
           name: 'Exercise 3',
           sets: 3,
           repsPerArm: 15,
         );
 
-        final exerciseWithoutReps = Exercise(
+        const exerciseWithoutReps = Exercise(
           name: 'Exercise 4',
           sets: 3,
         );

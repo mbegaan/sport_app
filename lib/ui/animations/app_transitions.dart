@@ -4,8 +4,8 @@ import 'slide_transition.dart';
 
 class AppTransitions {
   static Widget fadeIn(Widget child, {Duration? duration}) =>
-      FadeIn(child: child, duration: duration ?? const Duration(milliseconds: 400));
+      FadeIn(duration: duration ?? const Duration(milliseconds: 400), child: child);
 
   static Widget slideY(Widget child, {Duration? duration, double offset = 40.0}) =>
-      SlideTransitionY(child: child, duration: duration ?? const Duration(milliseconds: 500), offset: offset);
+      SlideTransitionY(duration: duration ?? const Duration(milliseconds: 500), offset: offset, child: child);
 }

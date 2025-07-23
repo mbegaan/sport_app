@@ -109,7 +109,7 @@ void main() {
         final container = tester.widget<Container>(find.byType(Container));
 
         // Then
-        expect(container.padding, EdgeInsets.all(AppDimensions.repCounterPadding));
+        expect(container.padding, const EdgeInsets.all(AppDimensions.repCounterPadding));
       });
 
       testWidgets('should use correct text style', (WidgetTester tester) async {
@@ -138,7 +138,7 @@ void main() {
       testWidgets('should be properly sized', (WidgetTester tester) async {
         // Given
         await tester.pumpWidget(
-          MaterialApp(
+          const MaterialApp(
             home: Scaffold(
               body: Center(
                 child: RepCounter(count: 15),
@@ -255,7 +255,7 @@ void main() {
                       RepCounter(count: currentCount),
                       ElevatedButton(
                         onPressed: () => setState(() => currentCount++),
-                        child: Text('Increment'),
+                        child: const Text('Increment'),
                       ),
                     ],
                   );

@@ -16,7 +16,7 @@ class ProgressDot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.symmetric(
+      padding: const EdgeInsets.symmetric(
         horizontal: AppDimensions.progressDotPaddingHorizontal, 
         vertical: AppDimensions.progressDotPaddingVertical
       ),

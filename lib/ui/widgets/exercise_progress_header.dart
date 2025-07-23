@@ -24,13 +24,13 @@ class ExerciseProgressHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: AppDimensions.mainPadding),
+      padding: const EdgeInsets.symmetric(horizontal: AppDimensions.mainPadding),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           // Fraction exercice
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: AppDimensions.progressDotPaddingHorizontal, 
               vertical: AppDimensions.progressDotPaddingVertical
             ),
@@ -43,7 +43,7 @@ class ExerciseProgressHeader extends StatelessWidget {
               style: AppTextStyles.exerciseFraction,
             ),
           ),
-          SizedBox(width: AppSpacing.gapM),
+          const SizedBox(width: AppSpacing.gapM),
           // Nom de l'exercice
           Expanded(
             child: Text(
@@ -52,10 +52,10 @@ class ExerciseProgressHeader extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          SizedBox(width: AppSpacing.gapM),
+          const SizedBox(width: AppSpacing.gapM),
           // Fraction série
           Container(
-            padding: EdgeInsets.symmetric(
+            padding: const EdgeInsets.symmetric(
               horizontal: AppDimensions.progressDotPaddingHorizontal, 
               vertical: AppDimensions.progressDotPaddingVertical
             ),

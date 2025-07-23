@@ -4,7 +4,7 @@ void main() {
   
   const validRatios = [1.125, 1.25, 1.333, 1.5, 1.618];
   const tolerance = 0.1;
-  final ratio = 25/16;
+  const ratio = 25/16;
   
   for (double validRatio in validRatios) {
     final diff = (ratio - validRatio).abs();

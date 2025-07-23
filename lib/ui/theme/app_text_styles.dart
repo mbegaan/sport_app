@@ -1,10 +1,8 @@
 
-import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'app_colors.dart';
 import 'app_dimensions.dart';
 import 'app_typography.dart';
-import 'app_spacing.dart';
 
 class AppTextStyles {
   // Styles spécialisés de l'app

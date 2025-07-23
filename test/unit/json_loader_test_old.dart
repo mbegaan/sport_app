@@ -1,7 +1,6 @@
 import 'package:flutter_test/flutter_test.dart';
 import 'package:flutter/services.dart';
 import 'package:sport_app/data/json_loader.dart';
-import 'package:sport_app/data/program_model.dart';
 
 // Mock de l'AssetBundle pour les tests
 class MockAssetBundle extends AssetBundle {
@@ -84,7 +83,7 @@ void main() {
 
         // Mock du rootBundle pour retourner notre JSON de test
         TestWidgetsFlutterBinding.ensureInitialized();
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async {
@@ -132,7 +131,7 @@ void main() {
 
         var callCount = 0;
         TestWidgetsFlutterBinding.ensureInitialized();
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async {
@@ -156,7 +155,7 @@ void main() {
       test('doit lever une exception si le fichier n\'existe pas', () async {
         // Given: Pas de fichier dans les assets
         TestWidgetsFlutterBinding.ensureInitialized();
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async {
@@ -179,7 +178,7 @@ void main() {
         const invalidJson = '{ invalid json }';
         
         TestWidgetsFlutterBinding.ensureInitialized();
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async => invalidJson,
@@ -197,7 +196,7 @@ void main() {
         const incorrectStructureJson = '{"wrong": "structure"}';
         
         TestWidgetsFlutterBinding.ensureInitialized();
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async => incorrectStructureJson,
@@ -234,7 +233,7 @@ void main() {
         ''';
 
         TestWidgetsFlutterBinding.ensureInitialized();
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async => validJson,
@@ -265,7 +264,7 @@ void main() {
         }
         ''';
 
-        TestDefaultBinaryMessengerBinding.instance!.defaultBinaryMessenger
+        TestDefaultBinaryMessengerBinding.instance.defaultBinaryMessenger
             .setMockMethodCallHandler(
           const MethodChannel('flutter/assets'),
           (MethodCall methodCall) async => newJson,
