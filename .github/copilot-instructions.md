@@ -16,18 +16,36 @@ This is a **Flutter fitness tracking app** with a **minimal, TDA-friendly UI** f
 - `Program/Session/Exercise` models with JSON serialization that handles flexible data types (e.g., `reps` can be `int` or `Map` with min/max)
 
 **UI Layer (`lib/ui/`)**:
-- Follows **minimal design principles**: single focus per screen, large touch targets, high contrast colors
-- Uses consistent color palette: `Color(0xFF2E3440)` (dark), `Color(0xFFF8F9FA)` (light background), `Color(0xFF6B7280)` (muted)
+- **Strict design system**: All styles via tokens (`AppColors`, `AppTextStyles`, `AppDimensions`) - NO hardcoded values
+- **Token-based architecture**: `AppColors.black` instead of `Colors.black`, `AppTextStyles.pageTitle` instead of inline `TextStyle`
+- **Modular structure**: `theme/`, `widgets/`, `animations/` with clear separation
+- **Responsive system**: `ResponsiveBuilder` widget handles screen size adaptations
 
 **State Management (`lib/utils/`)**:
 - `TimerNotifier`: Custom ValueNotifier managing workout timers with states: `idle`, `exerciseRunning`, `exerciseCompleted`, `restRunning`, `restCompleted`
 
 ## Development Patterns
 
+### Design System (STRICT Rules)
+- **NO hardcoded styles**: Use `AppColors.black` not `Colors.black`, `AppTextStyles.pageTitle` not inline `TextStyle`
+- **Token hierarchy**: Colors (`AppColors`) → Typography (`AppTypography`) → Text Styles (`AppTextStyles`) → Components
+- **Monochrome palette**: Strict black/white/grey system with semantic colors for future features
+- **Responsive dimensions**: Use `AppDimensions.buttonHeightResponsive(screenWidth)` for adaptive sizing
+
 ### UI Design Philosophy
 - **TDA-friendly**: Large buttons (min 60px height), clear visual hierarchy, no cognitive overload
 - **Physical activity context**: Interface designed for use during exercise (sweat, shaky hands, divided attention)
 - **Minimal interactions**: Avoid complex gestures, prefer simple taps and clear state transitions
+
+### Animation System
+- **Modular animations**: `BreathingAnimation` (rest periods), `EffortAnimation` (duration-based exercises)
+- **Performance-optimized**: Use `SingleTickerProviderStateMixin` for isolated animations
+- **Organic motion**: `Curves.easeInOutCubic` for smooth, natural feel
+
+### Component Architecture
+- **Single Responsibility**: Each widget has one clear purpose (`RepCounter` displays numbers, `RepControls` handles +/-)
+- **Composition over inheritance**: Build complex UIs from simple, focused widgets
+- **Error-tolerant parsing**: Handle flexible JSON data types in `Exercise` model
 
 ### Exercise Types
 - **Rep-based exercises**: User manually tracks completed reps with +/- controls
@@ -52,11 +70,13 @@ _timerNotifier.startRestTimer(restDurationSec);
 ## Development Commands
 
 ```bash
-# Launch app (use project script for consistent port)
-.\run_web.bat
+# Launch app (Android - primary target)
+.\run.bat
+
+# Web development (using VS Code task)
+flutter run -d chrome --web-port=8080
 
 # Standard Flutter commands
-flutter run -d chrome --web-port=8022
 flutter build web
 flutter test
 ```
@@ -68,12 +88,15 @@ flutter test
 - `lib/utils/timer_notifier.dart`: State machine for exercise/rest timers
 - `assets/programme.json`: Data structure with flexible exercise definitions
 - `lib/data/program_model.dart`: JSON serialization with error-tolerant parsing
+- `lib/ui/theme/`: Complete design system tokens (colors, typography, dimensions)
+- `lib/ui/styleguide.md`: Visual reference for all UI patterns and components
 
-## Common Patterns
+## Critical Patterns
 
+**Design System Migration**: The app has undergone complete design system migration - all UI follows strict token-based architecture
 **Error-tolerant JSON parsing**: Handle both `int` and `Map` types for exercise parameters
 **Web-safe mobile features**: Use `kIsWeb` checks for platform-specific functionality like wakelock
-**Consistent spacing**: 24px horizontal padding, 40px between major sections
-**Auto-advancing UI**: Minimal user input required during workout flow
+**Animation isolation**: Use dedicated animation widgets (`BreathingAnimation`, `EffortAnimation`) for workout states
+**Responsive consistency**: All dimensions use `ResponsiveBuilder` and `AppDimensions` responsive methods
 
-When modifying this codebase, prioritize **simplicity**, **accessibility during physical activity**, and **seamless workout flow** over feature complexity.
+When modifying this codebase, prioritize **design system compliance**, **accessibility during physical activity**, and **seamless workout flow** over feature complexity.

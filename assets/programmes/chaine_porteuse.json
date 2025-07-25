@@ -1,0 +1,56 @@
+{
+  "program": {
+    "id": "chaine_porteuse",
+    "name": "Chaîne Porteuse",
+    "objective": "développement évolutif de la chaîne postérieure",
+    "sessions": [
+      {
+        "id": "structure",
+        "name": "Structure",
+        "exercises": [
+          { "exercise_id": "scapula_pull_ups" },
+          { "exercise_id": "pompes_scapulaires" },
+          { "exercise_id": "row_elastique_bas" },
+          { "exercise_id": "face_pull_elastique" },
+          { "exercise_id": "superman_statique" },
+          { "exercise_id": "planche_bras_tendus", "is_last": true }
+        ]
+      },
+      {
+        "id": "ancrage",
+        "name": "Ancrage",
+        "exercises": [
+          { "exercise_id": "good_morning_elastique" },
+          { "exercise_id": "hip_thrust_bande" },
+          { "exercise_id": "kickbacks_genoux" },
+          { "exercise_id": "fentes_bulgares" },
+          { "exercise_id": "gainage_lateral" },
+          { "exercise_id": "superman_pulse", "is_last": true }
+        ]
+      },
+      {
+        "id": "integration",
+        "name": "Intégration",
+        "exercises": [
+          { "exercise_id": "traction_negative" },
+          { "exercise_id": "row_inverse" },
+          { "exercise_id": "planche_scapulaire_dynamique" },
+          { "exercise_id": "souleve_terre_elastique" },
+          { "exercise_id": "superman_lent" },
+          { "exercise_id": "dead_hang", "is_last": true }
+        ]
+      },
+      {
+        "id": "reset",
+        "name": "Reset",
+        "exercises": [
+          { "exercise_id": "cercles_epaules_dislocations" },
+          { "exercise_id": "hanging_passif" },
+          { "exercise_id": "pompes_scapulaires_quadrupedie" },
+          { "exercise_id": "bird_dog_lent" },
+          { "exercise_id": "etirements_cibles", "is_last": true }
+        ]
+      }
+    ]
+  }
+}

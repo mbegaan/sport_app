@@ -125,8 +125,8 @@ static const button = TextStyle(fontSize: 18, fontWeight: medium, color: white);
 - Courbe personnalisée pour respiration naturelle
 
 ### **EffortAnimation** - Animation d'effort
-- Disque noir qui se réduit selon le progrès
-- Taille relative à l'écran (80% → 0%)
+- Disque noir qui se réduit progressivement sur la durée donnée
+- Animation autonome contrôlée de l'intérieur (80% → 0%)
 
 ### **AppTransitions** - Helpers de transition
 - `fadeIn()` et `slideY()` réutilisables

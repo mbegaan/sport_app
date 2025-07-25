@@ -3,48 +3,78 @@ import 'dart:math' as math;
 import 'package:flutter/material.dart';
 import '../theme/app_colors.dart';
 
-/// Animation d'effort rythmée avec effet rebond à chaque seconde
-/// Animation d'effort fluide et organique, inspirée de BreathingAnimation
-class EffortAnimation extends StatelessWidget {
-  final double progress; // 0.0 = début (80%), 1.0 = fin (0%)
-
-  // Constantes pour l'effet rebond optionnel
-  static const double minScale = 0.0; // Cercle invisible à la fin
-  static const double maxScale = 0.8; // Cercle à 80% au début
-  static const double reboundAmplitude = 0.04; // Amplitude du rebond (4%)
-  static const double reboundFrequency = 1.0; // 1 rebond par seconde
+/// Animation d'effort : cercle noir qui diminue progressivement avec le temps
+/// Commence à 80% de la plus petite dimension et disparaît à la fin
+class EffortAnimation extends StatefulWidget {
+  final int durationSeconds; // Durée totale de l'animation
 
   const EffortAnimation({
     super.key,
-    required this.progress,
+    required this.durationSeconds,
   });
+
+  @override
+  State<EffortAnimation> createState() => _EffortAnimationState();
+}
+
+class _EffortAnimationState extends State<EffortAnimation>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: Duration(seconds: widget.durationSeconds),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(
+      begin: 0.8,
+      end: 0.0,
+    ).animate(CurvedAnimation(
+      parent: _controller,
+      curve: Curves.linear,
+    ));
+    
+    // Démarrer l'animation automatiquement
+    _controller.forward();
+  }
+
+  @override
+  void didUpdateWidget(EffortAnimation oldWidget) {
+    super.didUpdateWidget(oldWidget);
+    if (oldWidget.durationSeconds != widget.durationSeconds) {
+      _controller.duration = Duration(seconds: widget.durationSeconds);
+      _controller.reset();
+      _controller.forward();
+    }
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     final screenSize = MediaQuery.of(context).size;
     final minDimension = math.min(screenSize.width, screenSize.height);
-
-    // Progress interpolé de façon douce (easeInOutCubic)
-    final easedProgress = Curves.easeInOutCubic.transform(progress.clamp(0.0, 1.0));
-
-    // Animation principale : cercle qui se réduit de maxScale à minScale
-    double scale = maxScale * (1.0 - easedProgress);
-
-    // Ajout d'un léger rebond organique synchronisé sur le temps (optionnel)
-    if (progress < 1.0 && progress > 0.0) {
-      // Calcule une onde sinusoïdale pour un rebond doux et continu
-      final rebound = (1 - math.cos(easedProgress * math.pi * 20)) / 2; // 10 rebonds sur la durée
-      scale += rebound * reboundAmplitude;
-    }
-
-    final currentSize = minDimension * scale;
-    return Container(
-      width: currentSize,
-      height: currentSize,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: AppColors.black,
-      ),
+    
+    return AnimatedBuilder(
+      animation: _scaleAnimation,
+      builder: (context, child) {
+        final size = minDimension * _scaleAnimation.value;
+        return Container(
+          width: size,
+          height: size,
+          decoration: const BoxDecoration(
+            shape: BoxShape.circle,
+            color: AppColors.black,
+          ),
+        );
+      },
     );
   }
 }

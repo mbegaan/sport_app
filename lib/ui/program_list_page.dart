@@ -42,7 +42,6 @@ class _ProgramListPageState extends State<ProgramListPage> {
                 l10n,
                 contextInfo: 'ProgramListPage.loadProgram',
                 onRetry: () {
-                  JsonLoader.clearCache();
                   setState(() {}); // Force rebuild pour relancer FutureBuilder
                 },
               );

@@ -61,6 +61,26 @@ class JsonLoader {
     }
   }
 
+  /// Récupère une session spécifique par ID
+  static Future<Session> getSession(String sessionId) async {
+    final program = await loadProgram();
+    
+    // Convertir sessionId String en int pour la comparaison
+    int? sessionIdInt;
+    try {
+      sessionIdInt = int.parse(sessionId);
+    } catch (e) {
+      throw NotFoundException(message: 'ID de session invalide: $sessionId');
+    }
+    
+    final session = program.sessions.firstWhere(
+      (s) => s.id == sessionIdInt,
+      orElse: () => throw NotFoundException(message: 'Session non trouvée: $sessionId'),
+    );
+    
+    return session;
+  }
+
   /// Réinitialise le cache et le bundle personnalisé (utile pour les tests)
   static void clearCache() {
     _cachedProgram = null;

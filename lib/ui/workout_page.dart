@@ -67,10 +67,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   Future<void> _loadSession() async {
     try {
-      final program = await JsonLoader.loadProgram();
-      final session = program.sessions.firstWhere(
-        (s) => s.id.toString() == widget.sessionId,
-      );
+      final session = await JsonLoader.getSession(widget.sessionId);
       setState(() {
         _session = session;
         _isLoading = false;
@@ -114,7 +111,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
     final currentExercise = _session!.exercises[_currentExerciseIndex];
     
-    if (_currentSet < currentExercise.numberOfSets) {
+    if (_currentSet < currentExercise.sets) {
       // Passer à la série suivante
       _startRestTimer();
       setState(() {
@@ -200,7 +197,6 @@ class _WorkoutPageState extends State<WorkoutPage> {
           l10n,
           contextInfo: 'WorkoutPage.session_null',
           onRetry: () {
-            JsonLoader.clearCache();
             setState(() {
               _isLoading = true;
               _loadSession();
@@ -301,7 +297,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
                       totalExercises: _session!.exercises.length,
                       exerciseName: currentExercise.name,
                       currentSet: _currentSet,
-                      totalSets: currentExercise.numberOfSets,
+                      totalSets: currentExercise.sets,
                     ),
                     
                     SizedBox(height: sectionSpacing),
@@ -347,7 +343,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
         children: [
           if (timerState.isRunning) ...[
             // Animation d'effort - disque qui se réduit
-            EffortAnimation(progress: timerState.progress),
+            EffortAnimation(durationSeconds: timerState.totalSeconds),
           ] else if (timerState.isExerciseCompleted) ...[
             const Icon(
               Icons.check_circle_outline,
@@ -360,7 +356,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
               width: AppDimensions.startButtonWidth,
               child: AppButton(
                 label: l10n.startWorkout,
-                onPressed: () => _timerNotifier.startExerciseTimer(exercise.exerciseDuration!),
+                onPressed: () => _timerNotifier.startExerciseTimer(exercise.durationSec!),
                 type: AppButtonType.primary,
               ),
             ),
@@ -393,10 +389,5 @@ class _WorkoutPageState extends State<WorkoutPage> {
         ],
       ),
     );
-  }
-
-  void _showExitDialog() {
-    // Navigation directe sans confirmation
-    context.go('/');
   }
 }

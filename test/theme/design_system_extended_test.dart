@@ -58,9 +58,9 @@ void main() {
       });
 
       test('should have semantic message styles', () {
-        expect(AppTextStyles.successMessage.color, AppColors.success);
-        expect(AppTextStyles.warningMessage.color, AppColors.warning);
-        expect(AppTextStyles.infoMessage.color, AppColors.info);
+        expect(AppTextStyles.successMessage.colorScheme.background, AppColors.success);
+        expect(AppTextStyles.warningMessage.colorScheme.background, AppColors.warning);
+        expect(AppTextStyles.infoMessage.colorScheme.background, AppColors.info);
       });
 
       test('should have form input styles', () {

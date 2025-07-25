@@ -60,6 +60,7 @@ class Session {
   }
 }
 
+
 class Exercise {
   final String name;
   final dynamic sets; // int ou Map avec min/max
@@ -69,6 +70,10 @@ class Exercise {
   final int? repsPerSide;
   final int? durationSec; // pour min/max duration
   final int? durationPerZoneSec;
+  final int? restBetweenSetsSec;
+  final int? restAfterExerciseSec;
+  final List<String>? musclesCibles;
+  final bool? isIsometric;
   final int restSec;
   final String? notes;
   final String? equipment;
@@ -82,6 +87,10 @@ class Exercise {
     this.repsPerSide,
     this.durationSec,
     this.durationPerZoneSec,
+    this.restBetweenSetsSec,
+    this.restAfterExerciseSec,
+    this.musclesCibles,
+    this.isIsometric,
     this.restSec = 60,
     this.notes,
     this.equipment,
@@ -94,6 +103,8 @@ class Exercise {
       final repsData = json['reps'];
       if (repsData is Map<String, dynamic>) {
         reps = [repsData['min'] as int, repsData['max'] as int];
+      } else if (repsData is int) {
+        reps = [repsData, repsData];
       }
     }
 
@@ -117,6 +128,10 @@ class Exercise {
       repsPerSide: json['reps_per_side'] as int?,
       durationSec: durationSec,
       durationPerZoneSec: json['duration_per_zone_sec'] as int?,
+      restBetweenSetsSec: json['rest_between_sets_sec'] as int?,
+      restAfterExerciseSec: json['rest_after_exercise_sec'] as int?,
+      musclesCibles: (json['muscles_cibles'] as List?)?.map((e) => e.toString()).toList(),
+      isIsometric: json['is_isometric'] as bool?,
       notes: json['notes'] as String?,
       equipment: json['equipment'] as String?,
     );

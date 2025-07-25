@@ -335,7 +335,7 @@ class MonWidget extends StatelessWidget {
           padding: EdgeInsets.all(AppDimensions.paddingResponsive(screenWidth)),
           child: Text(
             'Titre',
-            style: AppTextStyles.exerciseTitleResponsive(screenWidth),
+            style: AppTextStyles.exerciseTitleResponsive(context, screenWidth),
           ),
         );
       },

@@ -3,6 +3,14 @@ import 'fade_in.dart';
 import 'slide_transition.dart';
 
 class AppTransitions {
+  //fadein center
+  static Widget fadeInCenter(Widget child, {Duration? duration}) =>
+      Center(
+        child: FadeIn(
+          duration: duration ?? const Duration(milliseconds: 400),
+          child: child,
+        ),
+      );
   static Widget fadeIn(Widget child, {Duration? duration}) =>
       FadeIn(duration: duration ?? const Duration(milliseconds: 400), child: child);
 

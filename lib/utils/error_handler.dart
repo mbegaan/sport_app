@@ -129,7 +129,7 @@ class ErrorHandler {
               size: 64,
               color: AppColors.grey,
             ),
-            SizedBox(height: AppSpacing.gapM),
+            const SizedBox(height: AppSpacing.gapM),
             Text(
               message,
               style: AppTextStyles.errorMessage,

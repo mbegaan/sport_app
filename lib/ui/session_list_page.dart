@@ -44,7 +44,6 @@ class _SessionListPageState extends State<SessionListPage> {
                 l10n,
                 contextInfo: 'SessionListPage.loadProgram',
                 onRetry: () {
-                  JsonLoader.clearCache();
                   setState(() {}); // Force rebuild pour relancer FutureBuilder
                 },
               );

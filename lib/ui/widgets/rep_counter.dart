@@ -25,7 +25,7 @@ class RepCounter extends StatelessWidget {
           ),
           child: Text(
             '$count',
-            style: AppTextStyles.repCounterResponsive(screenWidth).copyWith(
+            style: AppTextStyles.repCounterResponsive(context, screenWidth).copyWith(
               fontFeatures: [const FontFeature.tabularFigures()],
             ),
           ),

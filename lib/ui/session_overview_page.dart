@@ -32,8 +32,8 @@ class _SessionOverviewPageState extends State<SessionOverviewPage> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
-        child: FutureBuilder<Program>(
-          future: JsonLoader.loadProgram(),
+        child: FutureBuilder<Session>(
+          future: JsonLoader.getSession(widget.sessionId),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(
@@ -45,36 +45,14 @@ class _SessionOverviewPageState extends State<SessionOverviewPage> {
               return ErrorHandler.buildErrorWidget(
                 snapshot.error ?? Exception(l10n.noProgram),
                 l10n,
-                contextInfo: 'SessionOverviewPage.loadProgram',
+                contextInfo: 'SessionOverviewPage.loadSession',
                 onRetry: () {
-                  JsonLoader.clearCache();
                   setState(() {}); // Force rebuild pour relancer FutureBuilder
                 },
               );
             }
 
-            final program = snapshot.data!;
-            late Session session;
-            try {
-              session = program.sessions.firstWhere(
-                (s) => s.id.toString() == widget.sessionId,
-              );
-            } catch (e) {
-              final notFoundError = NotFoundException(
-                message: 'Séance introuvable',
-                details: 'session_id:${widget.sessionId}',
-                originalError: e,
-              );
-              return ErrorHandler.buildErrorWidget(
-                notFoundError,
-                l10n,
-                contextInfo: 'SessionOverviewPage.findSession',
-                onRetry: () {
-                  JsonLoader.clearCache();
-                  setState(() {}); // Force rebuild pour relancer FutureBuilder
-                },
-              );
-            }
+            final session = snapshot.data!;
 
             return Column(
               children: [

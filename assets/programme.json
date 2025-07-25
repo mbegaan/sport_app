@@ -15,37 +15,61 @@
             "name": "Scapula Pull-Ups",
             "sets": 3,
             "reps": { "min": 6, "max": 8 },
-            "notes": "bras tendus, activer uniquement omoplates"
+            "notes": "bras tendus, activer uniquement omoplates",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["trapèze inférieur", "trapèze moyen", "rhomboïdes", "dentelé antérieur"],
+            "is_isometric": false
           },
           {
             "name": "Pompes scapulaires",
             "sets": 2,
             "reps": { "min": 15, "max": 20 },
-            "notes": "quadrupédie ou planche, mouvement lent"
+            "notes": "quadrupédie ou planche, mouvement lent",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["dentelé antérieur", "trapèze inférieur", "trapèze moyen"],
+            "is_isometric": false
           },
           {
             "name": "Row élastique bas",
             "sets": 3,
-            "reps": { "min": 12, "max": 12 },
-            "notes": "élastique vert, omoplates vers colonne"
+            "reps": 12,
+            "notes": "élastique vert, omoplates vers colonne",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["grand dorsal", "trapèze moyen", "rhomboïdes", "biceps brachial"],
+            "is_isometric": false
           },
           {
             "name": "Face Pull (élastique)",
             "sets": 3,
-            "reps": { "min": 15, "max": 15 },
-            "notes": "élastique en hauteur, coudes hauts"
+            "reps": 15,
+            "notes": "élastique en hauteur, coudes hauts",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["trapèze inférieur", "trapèze moyen", "rhomboïdes", "deltoïdes postérieurs", "rotateurs externes de l'épaule"],
+            "is_isometric": false
           },
           {
             "name": "Superman statique",
             "sets": 3,
             "duration_sec": { "min": 30, "max": 40 },
-            "notes": "bras tendus, jambes levées"
+            "notes": "bras tendus, jambes levées",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["lombaires (érecteurs du rachis)", "fessiers", "ischios-jambiers"],
+            "is_isometric": true
           },
           {
             "name": "Planche bras tendus",
             "sets": 3,
-            "duration_sec": { "min": 30, "max": 45 },
-            "notes": "posture neutre, gainage actif"
+            "duration_sec": 45,
+            "notes": "posture neutre, gainage actif",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 0,
+            "muscles_cibles": ["abdominaux", "transverse de l'abdomen", "deltoïdes", "lombaires"],
+            "is_isometric": true
           }
         ]
       },
@@ -57,38 +81,62 @@
           {
             "name": "Good Morning élastique",
             "sets": 3,
-            "reps": { "min": 12, "max": 12 },
-            "notes": "bande sous pieds, dos droit"
+            "reps": 12,
+            "notes": "bande sous pieds, dos droit",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["ischios", "fessiers"],
+            "is_isometric": false
           },
           {
             "name": "Hip Thrust (bande)",
             "sets": 4,
             "reps": { "min": 12, "max": 15 },
-            "notes": "épaules surélevées, contraction en haut"
+            "notes": "épaules surélevées, contraction en haut",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["fessiers", "ischios"],
+            "is_isometric": false
           },
           {
             "name": "Kickbacks à genoux",
             "sets": 3,
             "reps_per_leg": 15,
-            "notes": "fessiers ciblés, tension constante"
+            "notes": "fessiers ciblés, tension constante",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["fessiers"],
+            "is_isometric": false
           },
           {
             "name": "Fentes bulgares",
             "sets": 3,
             "reps_per_leg": 10,
-            "notes": "contrôle, poussée par le talon"
+            "notes": "contrôle, poussée par le talon",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["quadriceps", "fessiers"],
+            "is_isometric": false
           },
           {
             "name": "Gainage latéral",
             "sets": { "min": 2, "max": 3 },
             "duration_sec": { "min": 30, "max": 30 },
-            "notes": "hanches alignées"
+            "notes": "hanches alignées",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["obliques", "transverse"],
+            "is_isometric": true
           },
           {
             "name": "Superman pulse",
             "sets": 3,
-            "reps": { "min": 10, "max": 10 },
-            "notes": "contractions brèves, dos et fessiers"
+            "reps": 10,
+            "notes": "contractions brèves, dos et fessiers",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 0,
+            "muscles_cibles": ["dos", "fessiers"],
+            "is_isometric": false
           }
         ]
       },
@@ -100,39 +148,63 @@
           {
             "name": "Traction négative",
             "sets": 3,
-            "reps": { "min": 12, "max": 12 },
+            "reps": 12,
             "duration_sec": { "min": 8, "max": 10 },
-            "notes": "montée assistée, descente lente"
+            "notes": "montée assistée, descente lente",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["grand dorsal", "biceps"],
+            "is_isometric": false
           },
           {
             "name": "Row inversé",
             "sets": 3,
             "reps": { "min": 10, "max": 12 },
-            "notes": "traction horizontale, contrôle du gainage"
+            "notes": "traction horizontale, contrôle du gainage",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["grand dorsal", "trapèzes"],
+            "is_isometric": false
           },
           {
             "name": "Planche scapulaire dynamique",
             "sets": 3,
             "reps_per_arm": 10,
-            "notes": "ramener coude sous torse"
+            "notes": "ramener coude sous torse",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["pectoraux", "triceps"],
+            "is_isometric": false
           },
           {
             "name": "Soulevé de terre élastique",
             "sets": 3,
-            "reps": { "min": 12, "max": 12 },
-            "notes": "tension sur ischios et dos"
+            "reps": 12,
+            "notes": "tension sur ischios et dos",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 180,
+            "muscles_cibles": ["ischios", "lombaires"],
+            "is_isometric": false
           },
           {
             "name": "Superman lent",
             "sets": 3,
-            "reps": { "min": 8, "max": 8 },
-            "notes": "montée/descente lente, excentrique"
+            "reps": 8,
+            "notes": "montée/descente lente, excentrique",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["dos", "fessiers"],
+            "is_isometric": false
           },
           {
             "name": "Dead Hang",
             "sets": { "min": 2, "max": 3 },
             "duration_sec": { "min": 30, "max": 60 },
-            "notes": "relâchement, grip, épaules"
+            "notes": "relâchement, grip, épaules",
+            "rest_between_sets_sec": 120,
+            "rest_after_exercise_sec": 0,
+            "muscles_cibles": ["épaules", "dos"],
+            "is_isometric": true
           }
         ]
       },
@@ -145,40 +217,108 @@
             "name": "Cercles épaules / dislocations",
             "sets": 2,
             "reps": { "min": 20, "max": 20 },
-            "notes": "mobilisation douce"
+            "notes": "mobilisation douce",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["épaules", "thoraciques"],
+            "is_isometric": false
           },
           {
             "name": "Hanging passif",
             "sets": 3,
             "duration_sec": { "min": 20, "max": 20 },
-            "notes": "relâchement sans effort"
+            "notes": "relâchement sans effort",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["épaules", "dos"],
+            "is_isometric": true
           },
           {
             "name": "Pompes scapulaires (quadrupédie)",
             "sets": 2,
             "reps": { "min": 20, "max": 20 },
-            "notes": "active les omoplates"
+            "notes": "active les omoplates",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["pectoraux", "deltoïdes"],
+            "is_isometric": false
           },
           {
             "name": "Bird-dog lent",
             "sets": 3,
             "reps_per_side": 8,
-            "notes": "coordination gainage/dos"
+            "notes": "coordination gainage/dos",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 150,
+            "muscles_cibles": ["lombaires", "abdominaux"],
+            "is_isometric": false
           },
           {
             "name": "Étirements ciblés",
             "duration_per_zone_sec": 60,
-            "notes": "pectoraux, trapèzes, ischios"
+            "notes": "pectoraux, trapèzes, ischios",
+            "rest_between_sets_sec": 90,
+            "rest_after_exercise_sec": 0,
+            "muscles_cibles": ["pectoraux", "trapèzes", "ischios"],
+            "is_isometric": true
+          }
+        ]
+      },
+      {
+        "id": 5,
+        "name": "test",
+        "focus": "Séance légère / reset",
+        "exercises": [
+          {
+            "name": "Hanging passif",
+            "sets": 3,
+            "duration_sec": { "min": 4, "max": 4 },
+            "notes": "relâchement sans effort",
+            "rest_between_sets_sec": 4,
+            "rest_after_exercise_sec": 8,
+            "muscles_cibles": ["épaules", "dos"],
+            "is_isometric": true
+          },
+          {
+            "name": "Pompes scapulaires (quadrupédie)",
+            "sets": 2,
+            "reps": { "min": 20, "max": 20 },
+            "notes": "active les omoplates",
+            "rest_between_sets_sec": 4,
+            "rest_after_exercise_sec": 8,
+            "muscles_cibles": ["pectoraux", "deltoïdes"],
+            "is_isometric": false
+          },
+          {
+            "name": "Bird-dog lent",
+            "sets": 3,
+            "reps_per_side": 8,
+            "notes": "coordination gainage/dos",
+            "rest_between_sets_sec": 4,
+            "rest_after_exercise_sec": 8,
+            "muscles_cibles": ["lombaires", "abdominaux"],
+            "is_isometric": false
+          },
+          {
+            "name": "Étirements ciblés",
+            "duration_per_zone_sec": 4,
+            "notes": "pectoraux, trapèzes, ischios",
+            "rest_between_sets_sec": 4,
+            "rest_after_exercise_sec": 0,
+            "muscles_cibles": ["pectoraux", "trapèzes", "ischios"],
+            "is_isometric": true
           }
         ]
       }
     ],
     "general_tips": {
       "tempo": { "eccentric": 2, "pause": 1, "concentric": 2 },
-      "rest_between_sets_sec": { "min": 60, "max": 90 },
+      "rest_between_sets_sec": { "min": 120, "max": 180 },
+      "rest_between_exercises_sec": { "min": 120, "max": 180 },
       "rest_on_tractions_max_sec": 120,
       "breathing": "inspire à la descente, souffle à l'effort",
-      "journaling": "noter fatigue, sensation musculaire, progrès"
+      "journaling": "noter fatigue, sensation musculaire, progrès",
+      "recommandations_progression": "si max reps atteintes deux séances consécutives → augmenter résistance"
     }
   }
 }

@@ -1,0 +1,547 @@
+{
+  "exercises": [
+    {
+      "id": "scapula_pull_ups",
+      "name": "Scapula Pull-Ups",
+      "sets": 3,
+      "reps": { "min": 6, "max": 8 },
+      "notes": "bras tendus, activer uniquement omoplates",
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180,
+      "muscles": ["trap_inf", "trap_moy", "rhomboides", "dent_anterieur"],
+      "is_isometric": false
+    },
+    {
+      "id": "pompes_scapulaires",
+      "name": "Pompes scapulaires",
+      "sets": 2,
+      "reps": { "min": 15, "max": 20 },
+      "notes": "quadrupédie ou planche, mouvement lent",
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150,
+      "muscles": ["dent_anterieur", "trap_inf", "trap_moy"],
+      "is_isometric": false
+    },
+    {
+      "id": "row_elastique_bas",
+      "name": "Row élastique bas",
+      "sets": 3,
+      "reps": 12,
+      "notes": "élastique vert, omoplates vers colonne",
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180,
+      "muscles": ["grand_dorsal", "trap_moy", "rhomboides", "biceps_brachial"],
+      "is_isometric": false
+    },
+    {
+      "id": "face_pull_elastique",
+      "name": "Face Pull (élastique)",
+      "sets": 3,
+      "reps": 15,
+      "notes": "élastique en hauteur, coudes hauts",
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180,
+      "muscles": ["trap_inf", "trap_moy", "rhomboides", "deltoides_post", "rot_ext_epaule"],
+      "is_isometric": false
+    },
+    {
+      "id": "superman_statique",
+      "name": "Superman statique",
+      "sets": 3,
+      "duration_sec": { "min": 30, "max": 40 },
+      "notes": "bras tendus, jambes levées",
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180,
+      "muscles": ["lombaires", "fessiers", "ischios_jambiers"],
+      "is_isometric": true
+    },
+    {
+      "id": "planche_bras_tendus",
+      "name": "Planche bras tendus",
+      "sets": 3,
+      "duration_sec": 45,
+      "notes": "posture neutre, gainage actif",
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 0,
+      "muscles": ["abdominaux", "transverse_abdomen", "deltoides", "lombaires"],
+      "is_isometric": true
+    },
+    {
+      "id": "good_morning_elastique",
+      "name": "Good Morning élastique",
+      "muscles_cibles": ["ischios_jambiers", "fessiers", "lombaires"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180
+    },
+    {
+      "id": "hip_thrust_bande",
+      "name": "Hip Thrust (bande)",
+      "muscles_cibles": ["grand_fessier", "ischios_jambiers", "quadriceps"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180
+    },
+    {
+      "id": "kickbacks_genoux",
+      "name": "Kickbacks à genoux",
+      "muscles_cibles": ["grand_fessier"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "fentes_bulgares",
+      "name": "Fentes bulgares",
+      "muscles_cibles": ["quadriceps", "ischios_jambiers", "fessiers"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180
+    },
+    {
+      "id": "gainage_lateral",
+      "name": "Gainage latéral",
+      "muscles_cibles": ["obliques", "transverse_abdomen", "fessier_moyen"],
+      "is_isometric": true,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "superman_pulse",
+      "name": "Superman pulse",
+      "muscles_cibles": ["lombaires", "fessiers"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 0
+    },
+    {
+      "id": "traction_negative",
+      "name": "Traction négative",
+      "muscles_cibles": ["grand_dorsal", "biceps_brachial", "trap_moyen", "rhomboides"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180
+    },
+    {
+      "id": "row_inverse",
+      "name": "Row inversé",
+      "muscles_cibles": ["grand_dorsal", "trap_moyen", "rhomboides", "biceps_brachial"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180
+    },
+    {
+      "id": "planche_scapulaire_dynamique",
+      "name": "Planche scapulaire dynamique",
+      "muscles_cibles": ["dent_ant", "trap_inferieur", "pectoraux_mineur"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "souleve_terre_elastique",
+      "name": "Soulevé de terre élastique",
+      "muscles_cibles": ["ischios_jambiers", "lombaires", "fessiers"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 180
+    },
+    {
+      "id": "superman_lent",
+      "name": "Superman lent",
+      "muscles_cibles": ["lombaires", "fessiers", "ischios_jambiers"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "dead_hang",
+      "name": "Dead Hang",
+      "muscles_cibles": ["avant_bras", "deltoides", "grand_dorsal"],
+      "is_isometric": true,
+      "rest_between_sets_sec": 120,
+      "rest_after_exercise_sec": 0
+    },
+    {
+      "id": "cercles_epaules_dislocations",
+      "name": "Cercles épaules / dislocations",
+      "muscles_cibles": ["deltoides", "rot_ext_epaule"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "hanging_passif",
+      "name": "Hanging passif",
+      "muscles_cibles": ["avant_bras", "deltoides", "grand_dorsal"],
+      "is_isometric": true,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "pompes_scapulaires_quadrupedie",
+      "name": "Pompes scapulaires (quadrupédie)",
+      "muscles_cibles": ["dent_ant", "trap_inferieur"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "bird_dog_lent",
+      "name": "Bird-dog lent",
+      "muscles_cibles": ["lombaires", "grand_fessier", "abdominaux"],
+      "is_isometric": false,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 150
+    },
+    {
+      "id": "etirements_cibles",
+      "name": "Étirements ciblés",
+      "muscles_cibles": ["pectoraux", "trap_moyen", "ischios_jambiers"],
+      "is_isometric": true,
+      "rest_between_sets_sec": 90,
+      "rest_after_exercise_sec": 0
+    },
+    {
+    "id": "curl_prise_marteau_elastique",
+    "name": "Curl en prise marteau avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Renforcement des biceps avec prise marteau et bande élastique",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["biceps_brachial", "brachial", "avant_bras"],
+    "is_isometric": false
+  },
+  {
+    "id": "good_morning_elastique",
+    "name": "Good morning avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 12 },
+    "notes": "Charnière de hanches avec bande élastique",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["ischios", "fessiers", "lombaires"],
+    "is_isometric": false
+  },
+  {
+    "id": "overhead_squat_elastique",
+    "name": "Overhead squat avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Squat bras tendus avec élastique pour mobilité et gainage",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["quadriceps", "fessiers", "epaules", "lombaires"],
+    "is_isometric": false
+  },
+  {
+    "id": "crunch_debout_elastique",
+    "name": "Crunch debout avec élastique",
+    "sets": 3,
+    "reps": { "min": 15, "max": 20 },
+    "notes": "Abdominaux debout avec bande élastique",
+    "rest_between_sets_sec": 60,
+    "rest_after_exercise_sec": 90,
+    "muscles": ["abdominaux"],
+    "is_isometric": false
+  },
+  {
+    "id": "developpe_epaule_unilateral_elastique",
+    "name": "Développé épaule unilatéral avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Renforcement unilatéral des épaules avec élastique",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["deltoides_anterieur", "deltoides_lateral", "triceps"],
+    "is_isometric": false
+  },
+  {
+    "id": "tirage_menton_elastique",
+    "name": "Tirage menton avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Rowing vertical avec bande pour trapèzes et épaules",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["trapèzes", "deltoides_lateral", "biceps"],
+    "is_isometric": false
+  },
+  {
+    "id": "developpe_debout_pectoraux_elastique",
+    "name": "Développé debout avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Pectoraux debout avec bande élastique",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["pectoraux", "triceps", "deltoides_anterieur"],
+    "is_isometric": false
+  },
+  {
+    "id": "hip_thrusts_genoux_elastique",
+    "name": "Hip thrusts à genoux avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Fessiers ciblés avec élastique en position à genoux",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["fessiers", "ischios"],
+    "is_isometric": false
+  },
+  {
+    "id": "oiseau_elastique",
+    "name": "Oiseau avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Élévation latérale buste penché pour deltoïdes postérieurs",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["deltoides_posterieur", "rhomboides", "trapèzes"],
+    "is_isometric": false
+  },
+  {
+    "id": "developpe_epaule_elastique",
+    "name": "Développé épaules avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Développé épaules bilatéral avec élastique",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["deltoides_anterieur", "deltoides_lateral", "triceps"],
+    "is_isometric": false
+  },
+  {
+    "id": "split_squat_elastique",
+    "name": "Split squat avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Fente avant avec bande élastique",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["quadriceps", "fessiers", "ischios"],
+    "is_isometric": false
+  },
+  {
+    "id": "nordic_hamstring_curl_elastique",
+    "name": "Nordic hamstring curl avec élastique",
+    "sets": 3,
+    "reps": { "min": 8, "max": 10 },
+    "notes": "Curl nordique assisté par bande",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["ischios", "mollets"],
+    "is_isometric": false
+  },
+  {
+    "id": "squat_elastique",
+    "name": "Squat avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Squat bilatéral avec bande sous les pieds",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["quadriceps", "fessiers", "ischios"],
+    "is_isometric": false
+  },
+  {
+    "id": "pull_through_elastique",
+    "name": "Pull through avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Tirage fessiers / chaîne postérieure",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["fessiers", "ischios", "lombaires"],
+    "is_isometric": false
+  },
+  {
+    "id": "developpe_couche_elastique",
+    "name": "Développé couché avec élastique",
+    "sets": 3,
+    "reps": { "min": 8, "max": 12 },
+    "notes": "Variante du développé couché avec bande",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["pectoraux", "triceps", "deltoides_anterieur"],
+    "is_isometric": false
+  },
+  {
+    "id": "souleve_terre_elastique",
+    "name": "Soulevé de terre avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Chaîne postérieure avec bande",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["ischios", "fessiers", "lombaires"],
+    "is_isometric": false
+  },
+  {
+    "id": "squat_bande_resistance",
+    "name": "Squat avec bande de résistance",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Variante squat avec bande",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["quadriceps", "fessiers", "ischios"],
+    "is_isometric": false
+  },
+  {
+    "id": "curl_biceps_pronation_elastique",
+    "name": "Curl biceps prise pronation avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Curl pronation ciblant biceps et avant-bras",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["biceps_brachial", "brachial", "avant_bras"],
+    "is_isometric": false
+  },
+  {
+    "id": "developpe_decline_elastique",
+    "name": "Développé décliné avec élastique",
+    "sets": 3,
+    "reps": { "min": 8, "max": 12 },
+    "notes": "Pectoraux inférieurs avec bande",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["pectoraux", "triceps"],
+    "is_isometric": false
+  },
+  {
+    "id": "rowing_buste_penche_elastique",
+    "name": "Rowing buste penché avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Tirage dos en pronation",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["grand_dorsal", "trapèzes", "rhomboides"],
+    "is_isometric": false
+  },
+  {
+    "id": "marche_elastique",
+    "name": "Marche avec élastique",
+    "sets": 3,
+    "reps": { "min": 15, "max": 20 },
+    "notes": "Déplacement latéral ou diagonal pour fessiers",
+    "rest_between_sets_sec": 60,
+    "rest_after_exercise_sec": 90,
+    "muscles": ["fessiers", "moyen_fessier"],
+    "is_isometric": false
+  },
+  {
+    "id": "extension_horizontale_epaule_elastique",
+    "name": "Extension horizontale des épaules avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Band pull-apart pour deltoïdes postérieurs",
+    "rest_between_sets_sec": 60,
+    "rest_after_exercise_sec": 90,
+    "muscles": ["deltoides_posterieur", "trapèzes", "rhomboides"],
+    "is_isometric": false
+  },
+  {
+    "id": "developpe_epaule_assis_elastique",
+    "name": "Développé épaules assis avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Développé épaules en position assise",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["deltoides", "triceps"],
+    "is_isometric": false
+  },
+  {
+    "id": "traction_assistee_elastique",
+    "name": "Traction assistée avec élastique",
+    "sets": 3,
+    "reps": { "min": 8, "max": 10 },
+    "notes": "Assistance traction grâce à élastique",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["grand_dorsal", "biceps", "trapèzes"],
+    "is_isometric": false
+  },
+  {
+    "id": "rowing_unilateral_elastique",
+    "name": "Rowing unilatéral avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Tirage unilatéral pour dos",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["grand_dorsal", "trapèzes", "rhomboides"],
+    "is_isometric": false
+  },
+  {
+    "id": "extension_triceps_tete_elastique",
+    "name": "Extension triceps au-dessus de la tête avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Extension verticale triceps",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["triceps"],
+    "is_isometric": false
+  },
+  {
+    "id": "leg_curl_allonge_elastique",
+    "name": "Leg curl allongé avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Flexion ischio-jambiers",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["ischios", "mollets"],
+    "is_isometric": false
+  },
+  {
+    "id": "rotation_buste_elastique",
+    "name": "Rotation du buste avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Travail obliques en rotation",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["obliques", "transverse"],
+    "is_isometric": false
+  },
+  {
+    "id": "tirage_horizontal_elastique",
+    "name": "Tirage horizontal avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Rowing horizontal avec bande",
+    "rest_between_sets_sec": 120,
+    "rest_after_exercise_sec": 180,
+    "muscles": ["grand_dorsal", "trapèzes", "rhomboides"],
+    "is_isometric": false
+  },
+  {
+    "id": "ecartes_elastique",
+    "name": "Écartés avec élastique",
+    "sets": 3,
+    "reps": { "min": 12, "max": 15 },
+    "notes": "Écartés pectoraux debout",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["pectoraux", "deltoides_anterieur"],
+    "is_isometric": false
+  },
+  {
+    "id": "extension_triceps_vertical_elastique",
+    "name": "Extension triceps verticale avec élastique",
+    "sets": 3,
+    "reps": { "min": 10, "max": 12 },
+    "notes": "Extension verticale des triceps avec bande",
+    "rest_between_sets_sec": 90,
+    "rest_after_exercise_sec": 120,
+    "muscles": ["triceps"],
+    "is_isometric": false
+  }
+  ]
+}
