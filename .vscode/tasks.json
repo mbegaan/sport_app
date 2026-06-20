@@ -2,18 +2,14 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Flutter Run (Chrome)",
+			"label": "Flutter Run (Android)",
 			"type": "shell",
 			"command": "flutter",
 			"args": [
-				"run",
-				"-d",
-				"chrome",
-				"--web-port=8080"
+				"run"
 			],
 			"group": "build",
-			"isBackground": true,
-			"problemMatcher": []
+			"isBackground": true
 		}
 	]
 }

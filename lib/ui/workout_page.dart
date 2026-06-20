@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import '../data/json_loader.dart';
-import '../data/program_model.dart';
+import '../data/services/data_service.dart';
 import '../l10n/app_localizations.dart';
 import '../utils/timer_notifier.dart';
 import '../utils/error_handler.dart';
@@ -32,7 +31,7 @@ class WorkoutPage extends StatefulWidget {
 
 class _WorkoutPageState extends State<WorkoutPage> {
   late TimerNotifier _timerNotifier;
-  Session? _session;
+  SessionData? _session;
   int _currentExerciseIndex = 0;
   int _currentSet = 1;
   int _completedReps = 0;
@@ -67,7 +66,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   Future<void> _loadSession() async {
     try {
-      final session = await JsonLoader.getSession(widget.sessionId);
+      final session = await DataService.getSession(widget.sessionId);
       setState(() {
         _session = session;
         _isLoading = false;
@@ -316,7 +315,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     );
   }
 
-  Widget _buildExerciseContent(Exercise exercise, TimerState timerState, AppLocalizations l10n) {
+  Widget _buildExerciseContent(ExerciseData exercise, TimerState timerState, AppLocalizations l10n) {
     if (exercise.isDurationBased) {
       return _buildDurationExerciseContent(exercise, timerState, l10n);
     } else {
@@ -336,7 +335,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     );
   }
 
-  Widget _buildDurationExerciseContent(Exercise exercise, TimerState timerState, AppLocalizations l10n) {
+  Widget _buildDurationExerciseContent(ExerciseData exercise, TimerState timerState, AppLocalizations l10n) {
     return Center(
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -366,7 +365,7 @@ class _WorkoutPageState extends State<WorkoutPage> {
     );
   }
 
-  Widget _buildRepsExerciseContent(Exercise exercise, TimerState timerState) {
+  Widget _buildRepsExerciseContent(ExerciseData exercise, TimerState timerState) {
     return Padding(
       padding: AppSpacing.horizontalL(),
       child: Column(

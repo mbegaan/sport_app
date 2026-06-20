@@ -5,8 +5,7 @@ import 'theme/app_spacing.dart';
 import 'widgets/app_button.dart';
 import 'widgets/responsive_builder.dart';
 import 'package:go_router/go_router.dart';
-import '../data/json_loader.dart';
-import '../data/program_model.dart';
+import '../data/services/data_service.dart';
 import '../l10n/app_localizations.dart';
 import '../utils/error_handler.dart';
 
@@ -26,8 +25,8 @@ class _SessionListPageState extends State<SessionListPage> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
-        child: FutureBuilder<Program>(
-          future: JsonLoader.loadProgram(),
+        child: FutureBuilder<ProgramData>(
+          future: DataService.loadProgram(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

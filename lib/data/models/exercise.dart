@@ -23,11 +23,14 @@ class Exercise {
   
   // Pour les exercices unilatéraux
   int? repsPerSide; // Répétitions par côté (ex: fentes)
+  int? repsPerLeg; // Alias pour repsPerSide
+  int? repsPerArm; // Répétitions par bras
   
   // Durée pour les exercices isométriques
   int? durationSec; // Durée fixe en secondes
   int? durationMinSec; // Durée minimum
   int? durationMaxSec; // Durée maximum
+  int? durationPerZoneSec; // Durée par zone (étirements)
   
   // Temps de repos
   int restBetweenSetsSec = 90; // Repos entre séries
@@ -50,9 +53,12 @@ class Exercise {
     this.repsMin,
     this.repsMax,
     this.repsPerSide,
+    this.repsPerLeg,
+    this.repsPerArm,
     this.durationSec,
     this.durationMinSec,
     this.durationMaxSec,
+    this.durationPerZoneSec,
     this.restBetweenSetsSec = 90,
     this.restAfterExerciseSec = 120,
     this.isIsometric = false,
@@ -60,11 +66,35 @@ class Exercise {
   });
   
   // Méthodes helper
-  bool get isDurationBased => durationSec != null || (durationMinSec != null && durationMaxSec != null);
+  bool get isDurationBased => durationSec != null || 
+      (durationMinSec != null && durationMaxSec != null) ||
+      durationPerZoneSec != null;
   
   bool get hasRepsRange => repsMin != null && repsMax != null;
   
   bool get hasDurationRange => durationMinSec != null && durationMaxSec != null;
+  
+  bool get isUnilateral => repsPerSide != null || repsPerLeg != null || repsPerArm != null;
+  
+  // Obtenir le nombre de répétitions à afficher
+  @ignore
+  int? get displayReps {
+    if (reps != null) return reps;
+    if (hasRepsRange) return repsMax; // Afficher le max par défaut
+    if (repsPerSide != null) return repsPerSide;
+    if (repsPerLeg != null) return repsPerLeg;
+    if (repsPerArm != null) return repsPerArm;
+    return null;
+  }
+  
+  // Obtenir la durée à afficher
+  @ignore
+  int? get displayDuration {
+    if (durationSec != null) return durationSec;
+    if (hasDurationRange) return durationMaxSec; // Afficher le max par défaut
+    if (durationPerZoneSec != null) return durationPerZoneSec;
+    return null;
+  }
   
   @override
   String toString() => 'Exercise(externalId: $externalId, name: $name)';

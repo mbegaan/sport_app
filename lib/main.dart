@@ -12,7 +12,7 @@ import 'ui/session_list_page.dart';
 import 'ui/session_overview_page.dart';
 import 'ui/workout_page.dart';
 import 'ui/theme/app_theme.dart';
-// import 'data/services/data_service.dart'; // Temporairement désactivé
+import 'data/services/data_service.dart'; // Réactivé pour test Isar
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,8 +26,6 @@ void main() async {
   }
   
   // Initialiser le service de données (migration JSON vers Isar si nécessaire)
-  // Temporairement désactivé pour test Android
-  /*
   try {
     await DataService.initialize();
     print('✅ DataService initialisé avec succès');
@@ -35,8 +33,6 @@ void main() async {
     print('❌ Erreur lors de l\'initialisation du DataService: $e');
     // L'app peut continuer, les erreurs seront gérées au niveau des pages
   }
-  */
-  print('✅ Mode test Android - DataService désactivé');
   
   runApp(SportApp());
 }

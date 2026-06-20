@@ -5,8 +5,7 @@ import 'theme/app_dimensions.dart';
 import 'theme/app_spacing.dart';
 import 'widgets/app_button.dart';
 import 'package:go_router/go_router.dart';
-import '../data/json_loader.dart';
-import '../data/program_model.dart';
+import '../data/services/data_service.dart';
 import '../l10n/app_localizations.dart';
 import '../utils/error_handler.dart';
 import '../utils/app_exceptions.dart';
@@ -32,8 +31,8 @@ class _SessionOverviewPageState extends State<SessionOverviewPage> {
     return Scaffold(
       backgroundColor: AppColors.white,
       body: SafeArea(
-        child: FutureBuilder<Session>(
-          future: JsonLoader.getSession(widget.sessionId),
+        child: FutureBuilder<SessionData>(
+          future: DataService.getSession(widget.sessionId),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const Center(

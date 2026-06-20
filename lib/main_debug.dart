@@ -1,4 +1,3 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:wakelock_plus/wakelock_plus.dart';
 
@@ -8,11 +7,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   
   // Empêcher l'écran de se mettre en veille pendant les séances
-  // (ne fonctionne que sur mobile, pas sur web)
   try {
-    if (!kIsWeb) {
-      await WakelockPlus.enable();
-    }
+    await WakelockPlus.enable();
   } catch (e) {
     // Ignorer l'erreur sur les plateformes non supportées
     print('Wakelock non supporté sur cette plateforme: $e');

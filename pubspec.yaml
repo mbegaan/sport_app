@@ -41,12 +41,10 @@ dependencies:
     sdk: flutter
   intl: ^0.20.2
   
-  # Isar database - temporairement désactivé pour test
-  # isar: ^3.1.0+1
-  # isar_flutter_libs: ^3.1.0+1
+  # Isar database pour stockage local
+  isar: ^3.1.0+1
+  isar_flutter_libs: ^3.1.0+1
   path_provider: ^2.1.1
-
-  isar: any
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -58,9 +56,9 @@ dev_dependencies:
   # rules and activating additional ones.
   flutter_lints: ^2.0.0
   
-  # Build runner pour générer les schémas Isar - temporairement désactivé
-  # build_runner: ^2.4.7
-  # isar_generator: ^3.1.0+1
+  # Build runner pour générer les schémas Isar
+  build_runner: ^2.4.7
+  isar_generator: ^3.1.0+1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
